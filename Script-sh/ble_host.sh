@@ -28,7 +28,7 @@ echo
 echo -e "To discover all advertising devices, scan using following hcitool command."
 echo -e "${YELLOW}>>> ${GREEN}sudo hcitool lescan${NC}"
 echo -e "Then connect to the device; an IPv6 router sending out RA messages."
-echo -e "${YELLOW}>>> ${GREEN}echo \"connect ${CYAN}(Bluetooth Device Address)${GREEN} 1\" | sudo tee /sys/kernel/debug/bluetooth/6lowpan_control${NC}"
+echo -e "${YELLOW}>>> ${GREEN}echo \"connect ${CYAN}(Bluetooth Device Address; MAC address)${GREEN} 1\" | sudo tee /sys/kernel/debug/bluetooth/6lowpan_control${NC}"
 echo -e "List all connected BLE devices after that, to see the connection to the router has successfully been made."
 echo -e "${YELLOW}>>> ${GREEN}sudo hcitool con${NC}"
 echo
@@ -40,7 +40,7 @@ echo -e "Or you can do the multicast."
 echo -e "${YELLOW}>>> ${GREEN}ping6 -I bt0 ff02::1${NC}"
 echo
 echo -e "To disconnect from the device."
-echo -e "${YELLOW}>>> ${GREEN}echo \"disconnect ${CYAN}(Bluetooth Device Address)${GREEN}\" | sudo tee /sys/kernel/debug/bluetooth/6lowpan_control${NC}"
+echo -e "${YELLOW}>>> ${GREEN}echo \"disconnect ${CYAN}(Bluetooth Device Address; MAC address)${GREEN}\" | sudo tee /sys/kernel/debug/bluetooth/6lowpan_control${NC}"
 echo -e "Check if there are active connections left."
 echo -e "${YELLOW}>>> ${GREEN}ifconfig${NC}"
 echo

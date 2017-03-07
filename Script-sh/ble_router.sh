@@ -11,7 +11,7 @@ YELLOW='\033[1;33m'
 echo -e ${CYAN}-------------- `basename "$0"` -------------${NC}
 
 # Run RA Daemon for IPv6 stateless auto-configuration. It will distribute a global IPv6 prefix to the connected devices by sending out a RA message.
-echo -e "${YELLOW}/etc/radvd.conf${NC}"
+echo -e "${YELLOW}/etc/radvd.conf${NC}" # a radvd configuration file
 {
 echo -e 'interface bt0 {'
 echo -e '\tAdvSendAdvert on;'
@@ -30,7 +30,7 @@ echo -e '\t\tAdvRouterAddr off;'
 echo -e '\t};'
 echo -e '};'
 } | sudo tee /etc/radvd.conf
-echo 1 | sudo tee /proc/sys/net/ipv6/conf/all/forwarding > /dev/null
+echo 1 | sudo tee /proc/sys/net/ipv6/conf/all/forwarding > /dev/null # Set IPv6 forwarding.
 sudo service radvd restart
 
 # Mount the debugfs file system to /sys/kernel/debug. You can ls to check the contents of the folder.
@@ -53,5 +53,11 @@ echo 1 | sudo tee /sys/kernel/debug/bluetooth/6lowpan_enable > /dev/null
 #sudo hciconfig hci0 lestates
 sudo hciconfig hci0 reset
 sudo hciconfig hci0 leadv
+
+# Routing setup
+#route -6
+# Add the IP prefix to the interface bt0 and eth0.
+sudo ifconfig bt0 add 2005::1/64
+sudo ifconfig eth0 add 2004::1/64
 
 echo -e ${CYAN}---------- end of `basename "$0"` ----------${NC}
