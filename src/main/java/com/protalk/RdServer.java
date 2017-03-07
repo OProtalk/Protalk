@@ -1,4 +1,4 @@
-package main.java.Jimyeol;
+package main.java.com.protalk;
 
 import java.net.*;
 
