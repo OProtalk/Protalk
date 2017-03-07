@@ -1,0 +1,59 @@
+#
+sudo apt-get install bluez radvd libcap-ng0
+
+sudo apt-get install radvd
+
+interface bt0
+{
+    AdvSendAdvert on;
+    prefix 2005::/64
+    {
+        AdvOnLink off;
+    };
+};
+
+interface eth0
+{
+    AdvSendAdvert on;
+    prefix 2004::/64
+    {
+    };
+};
+
+sudo echo 1 > /proc/sys/net/ipv6/conf/all/forwarding
+
+Service radvd restart
+
+ifconfig bt0 add 2005::1/64
+ifconfig eth0 add 2004::1/64
+
+Service radvd restart
+
+
+
+
+
+
+
+
+#CoAP
+
+sudo su
+
+mount -t debugfs none /sys/kernel/debug
+
+modprobe bluetooth_6lowpan
+
+echo 1 > /sys/kernel/debug/bluetooth/6lowpan_enable
+
+Hciconfig
+
+hciconfig hci0 reset
+
+hcitool lescan
+
+echo "connect 00:AA:BB:XX:YY:ZZ 1" > /sys/kernel/debug/bluetooth/6lowpan_control
+ifconfig
+
+ping6 -i bt0 fe80::2aa:bbff:fexx:yyzz
+
