@@ -1,7 +1,7 @@
 # Californium
 Californium.properties
 
-### Eclipse ###
+# Eclipse
 .classpath
 .project
 .settings/
@@ -18,7 +18,7 @@ local.properties
 .settings/
 .loadpath
 
-### Maven ###
+# Maven #
 bin/
 target/
 pom.xml.tag
@@ -31,7 +31,7 @@ dependency-reduced-pom.xml
 buildNumber.properties
 .mvn/timing.properties
 
-### Java ###
+# Java #
 *.class
 
 # Mobile Tools for Java (J2ME)

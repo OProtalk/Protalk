@@ -15,7 +15,7 @@ public class RdServer extends CoapServer {
 		add(new HelloWorldResource()); // provide an instance of a Hello-World resource
 	} // func
 
-	class HelloWorldResource extends CoapResource {
+	private final class HelloWorldResource extends CoapResource {
 		public HelloWorldResource() {
 			super("helloWorld"); // set resource identifier
 			getAttributes().setTitle("Hello-World Resource"); // set display name
@@ -23,12 +23,38 @@ public class RdServer extends CoapServer {
 
 		@Override
 		public void handleGET(CoapExchange exchange) {
-			exchange.respond("Hello World!"); // respond to the request
+			exchange.respond("1. Hello World!"); // respond to the request
+			exchange.respond("2. just another hello world respond");
 		} // func
+
+		@Override
+		public void handlePOST(CoapExchange exchange) {
+			// TODO Auto-generated method stub
+			super.handlePOST(exchange);
+		}		
+
+		@Override
+		public void handlePUT(CoapExchange exchange) {
+			// TODO Auto-generated method stub
+			super.handlePUT(exchange);
+		}
+
+		@Override
+		public void handleDELETE(CoapExchange exchange) {
+			// TODO Auto-generated method stub
+			super.handleDELETE(exchange);
+		}
+
+		@Override
+		public void handleRequest(Exchange exchange) {
+			// TODO Auto-generated method stub
+			super.handleRequest(exchange);
+		}
+		
 	} // class
 
 	// Add individual endpoints listening on default CoAP port on all IPv6 addresses of all network interfaces.
-	private void addEndpoints() {
+	private final void addEndpoints() {
 		for (InetAddress addr : EndpointManager.getEndpointManager().getNetworkInterfaces()) {
 			// only binds to IPv6 addresses and localhost
 			if (addr instanceof Inet6Address || addr.isLoopbackAddress()) {
@@ -39,7 +65,7 @@ public class RdServer extends CoapServer {
 	} // func
 
 	// entry point
-	public static void main(String[] args) {
+	public static final void main(String[] args) {
 		try {
 			RdServer server = new RdServer(); // create server
 			server.addEndpoints(); // add endpoints on all IP addresses
@@ -50,3 +76,4 @@ public class RdServer extends CoapServer {
 	} // func
 
 } // public class
+
