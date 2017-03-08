@@ -1,4 +1,4 @@
-package main.java.com.protalk;
+package com.protalk;
 
 import java.net.*;
 

@@ -1,49 +1,101 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+	http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	
+
+	<!-- 
+	pom.xml 초기화시 필수 기재 사항.
+	1. groupId는 기본 패키지 경로를 가리킨다. 관습적으로 회사이름이나 주소 따위가 들어가는데 com.naver.www와 같이 거꾸로 쓴다.
+	2. artifactId는 프로젝트의 이름이다.
+	3. packaging은 결과물의 파일 형식을 뜻한다. 값은 웹 어플리케이션인 경우 war, 일반 어플리케이션인 경우 jar가 된다.
+	4. version은 프로젝트의 버전을 말한다. 임의로 설정한다.
+	-->
 	<groupId>com.protalk</groupId>
 	<artifactId>ServerCoapRd</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
+	<version>0.0.1-SNAPSHOT</version>
 
-	<build>
-		<sourceDirectory>src/main/java</sourceDirectory>
-		<plugins>
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.5.1</version>
-				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
-				<configuration>
-					<archive>
-						<manifest>
-							<addClasspath>true</addClasspath>
-							<mainClass>com.protalk.RdServer</mainClass>
-						</manifest>
-					</archive>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
-	
+	<!-- properties의 항목을 정의하는 것은 변수나 상수의 선언처럼 어떤 값들에게 이름을 지어 주는 것이다. -->
 	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<!-- 빌드할 때 디펜던시 jar 파일들이 위치하는 경로 -->
+	    <lib.dir>lib</lib.dir>
 	</properties>
 
+	<!-- 메이븐 디펜던시는 의존관계라고도 부른다. 디펜던시는 그 프로젝트에서 사용하는 jar 파일 형식 외부 라이브러리를 가리킨다. -->
 	<dependencies>
+		<!-- californium-core-2.0.0-M3.jar 디펜던시의 사용을 정의해서,
+		소스코드에서 org.eclipse.californium.core.* 패키지를 임포트할 수 있게 한다. -->
 		<dependency>
 			<groupId>org.eclipse.californium</groupId>
 			<artifactId>californium-core</artifactId>
 			<version>2.0.0-M3</version>
 		</dependency>
 	</dependencies>
+
+	<!-- build는 mvn clean package 이나 mvn clean install 따위의 명령어로 빌드 수행할 때에 관련된 사항을 정의한다. -->
+	<build>
+		<sourceDirectory>src/main/java</sourceDirectory>
+		<plugins>
+		
+			<!-- 
+			실행 가능한 jar 파일을 만들기 위해 필요한 manifest를 정의한다.
+			mainClass는 static main()이 위치한 기본 클래스의 경로를 뜻한다.
+			여기서는 외부 의존관계를 ${lib.dir} 즉 target/lib/이라는 별도의 폴더에 복사해 담아둘 것이기 때문에,
+			classpathPrefix를 디펜던시들이 위치한 폴더로 설정한다.
+			 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<archive>
+						<manifest>
+							<mainClass>com.protalk.RdServer</mainClass>
+							<addClasspath>true</addClasspath>
+							<classpathPrefix>${lib.dir}/</classpathPrefix>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+			
+			<!-- 
+			maven-dependency-plugin으로 프로젝트 디펜던시들을 복사한다.
+			maven-assembly-plugin이나 one-jar plugin 따위를 이용해서,
+			모든 외부 라이브러리를 하나의 jar 파일 안에 전부 포함시켜 빌드하는 방법도 있다.
+			하지만 여기에서는 프로그램의 수행시간(런타임)에 필요한 디펜던시들을,
+			미리 정의한 폴더인 target/lib에 패키징 시점에 복사해서 모아둔 다음,
+			실행 프로그램의 classpath를 디펜던시들이 위치한 이 폴더의 경로로 설정하는 방법을 쓸 것이다.
+			classpath는 실행 가능한 jar 파일 내부의 manifest나 환경변수에 정의되어 있으며,
+			자바가 프로그램의 실행을 위해 클래스 파일을 뒤지는 폴더경로를 서술한다.
+			-->
+			<!--
+			참고사이트 
+			https://www.mkyong.com/maven/how-to-create-a-jar-file-with-maven/
+			http://stove99.tistory.com/79
+			-->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.5.1</version>
+				<executions>
+					<execution>
+						<id>copy-dependencies</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<includeScope>runtime</includeScope>
+							<outputDirectory>${project.build.directory}/${lib.dir}</outputDirectory>
+							<overWriteIfNewer>true</overWriteIfNewer>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			
+		</plugins>
+	</build>
 
 </project>
 
