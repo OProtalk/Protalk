@@ -30,7 +30,7 @@ echo -e '\t\tAdvRouterAddr off;'
 echo -e '\t};'
 echo -e '};'
 } | sudo tee /etc/radvd.conf
-echo 1 | sudo tee /proc/sys/net/ipv6/conf/all/forwarding > /dev/null # Set IPv6 forwarding.
+echo 1 | sudo tee /proc/sys/net/ipv6/conf/all/forwarding # > /dev/null # Set IPv6 forwarding.
 sudo service radvd restart
 
 # Mount the debugfs file system to /sys/kernel/debug. You can ls to check the contents of the folder.
@@ -43,7 +43,7 @@ sudo modprobe bluetooth_6lowpan
 
 # Enable the bluetooth 6lowpan module. The PSM value should be set to 0x23(35) to enable the module, if using Linux kernel version less than 4.0.
 #echo 35 | sudo tee /sys/kernel/debug/bluetooth/6lowpan_psm
-echo 1 | sudo tee /sys/kernel/debug/bluetooth/6lowpan_enable > /dev/null
+echo 1 | sudo tee /sys/kernel/debug/bluetooth/6lowpan_enable # > /dev/null
 
 # HCI commands such as hciconfig and hcitool are used to configure Bluetooth devices.
 # The device name hciX is assigned to the (Bluetooth) device installed in the system. 
@@ -54,10 +54,9 @@ echo 1 | sudo tee /sys/kernel/debug/bluetooth/6lowpan_enable > /dev/null
 sudo hciconfig hci0 reset
 sudo hciconfig hci0 leadv
 
-# Routing setup
-#route -6
-# Add the IP prefix to the interface bt0 and eth0.
-sudo ifconfig bt0 add 2005::1/64
-sudo ifconfig eth0 add 2004::1/64
+# Routing setup: Add the IP prefix to the interface bt0 and eth0.
+#route -6 # Display all existing IPv6 routes list
+sudo ifconfig bt0 add 2005::1/64 # Add 2005::1/64 to the routing table.
+sudo ifconfig eth0 add 2004::1/64 # Just another route.
 
 echo -e ${CYAN}---------- end of `basename "$0"` ----------${NC}
