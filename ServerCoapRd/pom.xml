@@ -15,9 +15,14 @@
 	<artifactId>ServerCoapRd</artifactId>
 	<packaging>jar</packaging>
 	<version>0.0.1-SNAPSHOT</version>
+	
+	<!-- 프로젝트 추가 정보 기술. 빌드에 전혀 영향 주지 않기 때문에 없어도 되는 내용이다. -->
+	<name>ServerCoapRd</name>
+	<url>https://github.com/OProtalk/ServerCoapRd</url>
 
 	<!-- properties의 항목을 정의하는 것은 변수나 상수의 선언처럼 어떤 값들에게 이름을 지어 주는 것이다. -->
 	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<!-- 빌드할 때 디펜던시 jar 파일들이 위치하는 경로 -->
 	    <lib.dir>lib</lib.dir>
 	</properties>
