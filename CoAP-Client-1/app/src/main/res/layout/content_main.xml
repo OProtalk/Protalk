@@ -12,8 +12,17 @@
     tools:context="com.protalk.coap_client_1.MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/btn1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:text="1. GET /SayHello"/>
+    <Button
+        android:id="@+id/btn2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="2. GET /JustAnotherResource"
+        android:layout_below="@+id/btn1"
+        android:layout_alignParentStart="true" />
+
 </RelativeLayout>
