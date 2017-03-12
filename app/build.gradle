@@ -24,6 +24,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    packagingOptions {
+        exclude 'edl-v10.html'
+        exclude 'epl-v10.html'
+        exclude 'META-INF/ECLIPSE_.SF'
+        exclude 'META-INF/ECLIPSE_.RSA'
+        exclude 'META-INF/ECLIPSE_.DSA'
+        exclude 'notice.html'
+    }
 }
 
 dependencies {
@@ -31,5 +39,5 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.4.0'
     compile 'com.android.support:design:23.4.0'
-    compile 'org.eclipse.californium:californium-core:2.0.0-M2'
+    compile 'org.eclipse.californium:californium-core:2.0.0-M3'
 }
