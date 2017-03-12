@@ -56,7 +56,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>com.protalk.RdServer</mainClass>
+							<mainClass>com.protalk.rd.RdServer</mainClass>
 							<addClasspath>true</addClasspath>
 							<classpathPrefix>${lib.dir}/</classpathPrefix>
 						</manifest>
