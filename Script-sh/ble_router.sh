@@ -29,6 +29,14 @@ echo -e '\t\tAdvAutonomous on;'
 echo -e '\t\tAdvRouterAddr off;'
 echo -e '\t};'
 echo -e '};'
+echo -e 'interface wlan0 {'
+echo -e '\tAdvSendAdvert on;'
+echo -e '\tprefix 2003::/64 {'
+echo -e '\t\tAdvOnLink on;'
+echo -e '\t\tAdvAutonomous on;'
+echo -e '\t\tAdvRouterAddr off;'
+echo -e '\t};'
+echo -e '};'
 } | sudo tee /etc/radvd.conf
 echo 1 | sudo tee /proc/sys/net/ipv6/conf/all/forwarding > /dev/null # Set IPv6 forwarding.
 sudo service radvd restart
@@ -58,5 +66,6 @@ sudo hciconfig hci0 leadv
 #route -6 # Display all existing IPv6 routes list
 sudo ifconfig bt0 add 2005::1/64 # Add 2005::1/64 to the routing table.
 sudo ifconfig eth0 add 2004::1/64 # Just another route.
+sudo ifconfig wlan0 add 2003::1/64 # Just another route.
 
 echo -e ${CYAN}---------- end of `basename "$0"` ----------${NC}
