@@ -51,7 +51,7 @@ sudo modprobe bluetooth_6lowpan
 
 # Enable the bluetooth 6lowpan module. The PSM value should be set to 0x23(35) to enable the module, if using Linux kernel version less than 4.0.
 #echo 35 | sudo tee /sys/kernel/debug/bluetooth/6lowpan_psm
-echo 1 | sudo tee /sys/kernel/debug/bluetooth/6lowpan_enable # > /dev/null
+echo 1 | sudo tee /sys/kernel/debug/bluetooth/6lowpan_enable > /dev/null
 
 # HCI commands such as hciconfig and hcitool are used to configure Bluetooth devices.
 # The device name hciX is assigned to the (Bluetooth) device installed in the system. 
