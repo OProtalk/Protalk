@@ -9,6 +9,9 @@ YELLOW='\033[1;33m'
 
 echo -e ${CYAN}-------------- `basename "$0"` -------------${NC}
 
+# Start ble advertising
+sudo hciconfig hci0 leadv
+
 # Routing setup: Add the IP prefix to all the interfaces.
 #route -6 # Display all existing IPv6 routes list
 sudo ifconfig bt0 add 2005::1/64 # Add 2005::1/64 to the routing table.
