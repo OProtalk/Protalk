@@ -1,0 +1,18 @@
+자바 직렬 통신 개발 환경
+데비안 계열 리눅스에서 RXTX 설치하기
+ref: http://java-buddy.blogspot.kr/2013/06/setup-rxtx-jar-and-so-for-ubuntu.html
+
+1. 메이븐 디펜던시로 라이브러리를 추가한다.
+<!-- https://mvnrepository.com/artifact/org.rxtx/rxtx -->
+<dependency>
+    <groupId>org.rxtx</groupId>
+    <artifactId>rxtx</artifactId>
+    <version>2.1.7</version>
+</dependency>
+
+2. 런타임 라이브러리를 설치한다.
+sudo apt install librxtx-java
+sudo cp /usr/lib/jni/librxtxSerial.so /lib
+sudo cp /usr/lib/jni/librxtxParallel.so /lib
+
+끝
