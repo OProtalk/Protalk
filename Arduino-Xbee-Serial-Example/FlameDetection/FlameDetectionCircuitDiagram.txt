@@ -1,0 +1,3 @@
+VCC -> 5v
+gnd -> gnd
+do -> 3pin

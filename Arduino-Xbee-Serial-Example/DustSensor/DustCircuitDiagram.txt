@@ -1,0 +1,6 @@
+pm1001 -> uno
+
+rx -> 11pin
+tx -> 13pin
+gnd -> gnd
+5v -> 5v

@@ -1,0 +1,3 @@
+vcc -> 5v
+data -> 3pin
+gnd -> gnd
