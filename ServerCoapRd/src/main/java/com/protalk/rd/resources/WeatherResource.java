@@ -5,13 +5,15 @@ import org.eclipse.californium.core.server.resources.*;
 
 import com.protalk.serial.*;
 
-public class LedSensorResource extends CoapResource {
+public class WeatherResource extends CoapResource {
 	
-	public LedSensorResource(Serial _serial) {
-		super("LedSensor");
-		add(new Led1Resource(_serial));
-		add(new Led2Resource(_serial));
-		add(new Led3Resource(_serial));
+	public WeatherResource(Serial _serial) {
+		super("Weather");
+		add(new HumidityResource(_serial));
+		add(new TemperatureResource(_serial));
+		add(new PpmResource(_serial));
+		add(new FlameDetectionResource(_serial));
+//		add(new DustSensorResource(_serial));
 	}
 	
 	@Override
@@ -38,4 +40,4 @@ public class LedSensorResource extends CoapResource {
 		super.handleDELETE(exchange);
 	}
 	
-} // public class
+}

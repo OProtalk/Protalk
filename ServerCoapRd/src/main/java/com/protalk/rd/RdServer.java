@@ -17,8 +17,10 @@ public class RdServer extends CoapServer {
 
 	// Constructor for a new Hello-World server initializes the resources of the server.
 	public RdServer() throws NoSuchPortException, UnsupportedCommOperationException, PortInUseException, IOException {
-		add(new LedSensorResource(new Serial("/dev/ttyUSB0")));
-		//add(new LedSensorResource(new Serial("COM4")));
+		Serial serial = new Serial("/dev/ttyUSB0");
+//		Serial serial = new Serial("COM5");
+		add(new LightsResource(serial));
+		add(new WeatherResource(serial));
 		//add(new HelloResource());
 		//add(new AnotherResource());
 	} // func

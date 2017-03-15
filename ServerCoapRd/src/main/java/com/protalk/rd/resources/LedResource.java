@@ -40,7 +40,7 @@ public class LedResource extends CoapResource {
 						} else if (chr == 'Q') {
 							exchange2.respond(ResponseCode.CONTENT, "OFF");
 						} else {
-							exchange2.respond(ResponseCode.INTERNAL_SERVER_ERROR, "ERROR1");
+							exchange2.respond(ResponseCode.INTERNAL_SERVER_ERROR, "ERROR1: your led node might not be connected to the server");
 						}
 					} catch (Exception e) {
 						// TODO Auto-generated catch block
