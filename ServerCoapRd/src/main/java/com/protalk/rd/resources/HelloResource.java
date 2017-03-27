@@ -1,7 +1,6 @@
 package com.protalk.rd.resources;
 
 import java.util.*;
-
 import org.eclipse.californium.core.*;
 import org.eclipse.californium.core.coap.CoAP.*;
 import org.eclipse.californium.core.server.resources.*;
