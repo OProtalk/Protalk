@@ -2,196 +2,467 @@
 <html lang="ko">
 
 <head>
-	<meta charset="utf-8" />
-	<title>protalk frontend</title>
+  <meta charset="utf-8" />
+  <title>protalk frontend</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="nah whatever">
+    <meta name="author" content="nanite@naver.com">
+  
+  <!-- Le styles -->
+  <link href="assets/css/bootstrap.css" rel="stylesheet">
+  <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+  <style>
+  
+  /* GLOBAL STYLES
+  -------------------------------------------------- */
+  /* Padding below the footer and lighter body text */
 
-	<!-- Start of bootstrap css -->
-	<link href="bootstrap/css/bootstrap.css" rel="stylesheet" />
-	<link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet" />
-	<!-- End of bootstrap css -->
-	
-	<style type="text/css">
-		body {
-			background-color: #C0DEED;
-			padding-top: 60px;
-			padding-bottom: 40px;
-		}
-		.row-fluid div[class*="span"] {
-			background-color: white;
-			-webkit-border-radius: 6px;
-			-moz-border-radius: 6px;
-			border-radius: 6px;
-			margin-bottom: 10px !important;
-			text-align: center;
-		}
-	</style>
+  body {
+    padding-bottom: 40px;
+    color: #5a5a5a;
+  }
+
+
+
+  /* CUSTOMIZE THE NAVBAR
+  -------------------------------------------------- */
+
+  /* Special class on .container surrounding .navbar, used for positioning it into place. */
+  .navbar-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    margin-top: 20px;
+    margin-bottom: -90px; /* Negative margin to pull up carousel. 90px is roughly margins and height of navbar. */
+  }
+  .navbar-wrapper .navbar {
+
+  }
+
+  /* Remove border and change up box shadow for more contrast */
+  .navbar .navbar-inner {
+    border: 0;
+    -webkit-box-shadow: 0 2px 10px rgba(0,0,0,.25);
+       -moz-box-shadow: 0 2px 10px rgba(0,0,0,.25);
+            box-shadow: 0 2px 10px rgba(0,0,0,.25);
+  }
+
+  /* Downsize the brand/project name a bit */
+  .navbar .brand {
+    padding: 14px 20px 16px; /* Increase vertical padding to match navbar links */
+    font-size: 16px;
+    font-weight: bold;
+    text-shadow: 0 -1px 0 rgba(0,0,0,.5);
+  }
+
+  /* Navbar links: increase padding for taller navbar */
+  .navbar .nav > li > a {
+    padding: 15px 20px;
+  }
+
+  /* Offset the responsive button for proper vertical alignment */
+  .navbar .btn-navbar {
+    margin-top: 10px;
+  }
+
+
+
+  /* CUSTOMIZE THE CAROUSEL
+  -------------------------------------------------- */
+
+  /* Carousel base class */
+  .carousel {
+    margin-bottom: 60px;
+  }
+
+  .carousel .container {
+    position: relative;
+    z-index: 9;
+  }
+
+  .carousel-control {
+    height: 80px;
+    margin-top: 0;
+    font-size: 120px;
+    text-shadow: 0 1px 1px rgba(0,0,0,.4);
+    background-color: transparent;
+    border: 0;
+    z-index: 10;
+  }
+
+  .carousel .item {
+    height: 500px;
+  }
+  .carousel img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    height: 500px;
+  }
+
+  .carousel-caption {
+    background-color: transparent;
+    position: static;
+    max-width: 600px;
+    padding: 0 100px;
+    margin-top: 175px;
+  }
+  .carousel-caption h1,
+  .carousel-caption .lead {
+    margin: 0;
+    line-height: 1.25;
+    color: #fff;
+    text-shadow: 0 1px 1px rgba(0,0,0,.4);
+  }
+  .carousel-caption .btn {
+    margin-top: 10px;
+  }
+
+
+
+  /* MARKETING CONTENT
+  -------------------------------------------------- */
+
+  /* Center align the text within the three columns below the carousel */
+  .marketing .span4 {
+    text-align: center;
+  }
+  .marketing h2 {
+    font-weight: normal;
+  }
+  .marketing .span4 p {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .img-circle {
+    width: 140px;
+    height: 140px;
+  }
+
+
+  /* Featurettes
+  ------------------------- */
+
+  .featurette-divider {
+    margin: 80px 0; /* Space out the Bootstrap <hr> more */
+  }
+  .featurette {
+    padding-top: 120px; /* Vertically center images part 1: add padding above and below text. */
+    overflow: hidden; /* Vertically center images part 2: clear their floats. */
+  }
+  .featurette-image {
+    margin-top: -120px; /* Vertically center images part 3: negative margin up the image the same amount of the padding to center it. */
+  }
+
+  /* Give some space on the sides of the floated elements so text doesn't run right into it. */
+  .featurette-image.pull-left {
+    margin-right: 40px;
+  }
+  .featurette-image.pull-right {
+    margin-left: 40px;
+  }
+
+  /* Thin out the marketing headings */
+  .featurette-heading {
+    font-size: 50px;
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+
+
+
+  /* RESPONSIVE CSS
+  -------------------------------------------------- */
+
+  @media (max-width: 979px) {
+
+    .container.navbar-wrapper {
+      margin-bottom: 0;
+      width: auto;
+    }
+    .navbar-inner {
+      border-radius: 0;
+      margin: -20px 0;
+    }
+
+    .carousel .item {
+      height: 500px;
+    }
+    .carousel img {
+      width: auto;
+      height: 500px;
+    }
+
+    .featurette {
+      height: auto;
+      padding: 0;
+    }
+    .featurette-image.pull-left,
+    .featurette-image.pull-right {
+      display: block;
+      float: none;
+      max-width: 40%;
+      margin: 0 auto 20px;
+    }
+  }
+
+
+  @media (max-width: 767px) {
+
+    .navbar-inner {
+      margin: -20px;
+    }
+
+    .carousel {
+      margin-left: -20px;
+      margin-right: -20px;
+    }
+    .carousel .container {
+
+    }
+    .carousel .item {
+      height: 300px;
+    }
+    .carousel img {
+      height: 300px;
+    }
+    .carousel-caption {
+      width: 65%;
+      padding: 0 70px;
+      margin-top: 100px;
+    }
+    .carousel-caption h1 {
+      font-size: 30px;
+    }
+    .carousel-caption .lead,
+    .carousel-caption .btn {
+      font-size: 18px;
+    }
+
+    .marketing .span4 + .span4 {
+      margin-top: 40px;
+    }
+
+    .featurette-heading {
+      font-size: 10px;
+    }
+    .featurette .lead {
+      font-size: 18px;
+      line-height: 1.5;
+    }
+
+  }
+  </style>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="assets/ico/speech-balloon-orange-p-icon.png">
 </head>
 
-<body>
-	
-	<!-- Start of jquery & bootstrap  -->
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-	<script src="bootstrap/js/bootstrap.js"></script>
-	<!-- End of jquery & bootstrap  -->
-	
-	<!-- Start of NavBar -->
-	<div class="navbar navbar-inverse navbar-fixed-top">
-		<div class="navbar-inner">
-			<div class="container">
-			
-				<a class="brand" href="#">Protalk</a> <a class="btn btn-navbar"
-					data-toggle="collapse" data-target="#navMenu"> <span
-					class="icon-bar"></span> <span class="icon-bar"></span> <span
-					class="icon-bar"></span>
-				</a>
-				
-				<!-- Start of navMenu -->
-				<div class="nav-collapse" id="navMenu">
-					<ul class="nav navbar-nav">
-						<li class="active"><a href="#">메인 화면</a></li>
-						<li><a href="#">종류별 장치 제어</a></li>
-						<li><a href="#">모드별 장치 제어</a></li>
-						<li class="divider"></li>
-						
-						<!-- Start of dropdown -->
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
-								[ UI Test ] <b class="caret"></b>
-							</a>
-							<ul class="dropdown-menu">
-								<li><a href="#">jmeter</a></li>
-								<li><a href="#">EJB</a></li>
-								<li><a href="#">Jasper Report</a></li>
+<body>	
+  
+    <!-- NAVBAR
+    ================================================== -->
+    <div class="navbar-wrapper">
+      <!-- Wrap the .navbar in .container to center it within the absolutely positioned parent. -->
+      <div class="container">
+  
+        <div class="navbar navbar-inverse">
+          <div class="navbar-inner">
+            <!-- Responsive Navbar Part 1: Button for triggering responsive navbar (not covered in tutorial). Include responsive CSS to utilize. -->
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="./index.html#Protalk">Protalk</a>
+            <!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed withing .navbar-collapse.collapse. -->
+            <div class="nav-collapse collapse">
+              <p class="navbar-text pull-right">
+                ( 'ㅅ' ) !! ~
+              </p>
+              <ul class="nav">
+                <li class="active">
+                	<a href="./index.html#Home">Home</a>
+                </li>
+                <li class="">
+                	<a href="./action.html#Action">Action</a>
+                </li>
+                <!-- Read about Bootstrap dropdowns at http://twbs.github.com/bootstrap/javascript.html#dropdowns -->
+                <li class="dropdown">
+                  <a href="#More" class="dropdown-toggle" data-toggle="dropdown">
+                    More <b class="caret"></b>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">흐음...</a></li>
+                    <li><a href="#">뭘 넣으면 좋을까요?</a></li>
+                    <li><a href="#">코카콜라</a></li>
+                    <li class="divider"></li>
+                    <li class="nav-header">거실이라고 할까</li>
+                    <li><a href="#">LED1</a></li>
+                    <li><a href="#">LED2</a></li>
+                    <li><a href="#">LED3</a></li>
+                    <li class="nav-header">종류; 카테고리</li>
+                    <li><a href="#">한놈</a></li>
+                    <li><a href="#">두식</a></li>
+                    <li><a href="#">석삼</a></li>
+                  </ul>
+                </li>
+                <li class="">
+                	<a href="#About">About</a>
+                </li>
+                <li class="">
+                	<a href="#Contact">Contact</a>
+                </li>
+                <li class="">
+                  <a href="./test.html#Test">Test</a>
+                </li>
+              </ul>
+            </div><!--/.nav-collapse -->
+          </div><!-- /.navbar-inner -->
+        </div><!-- /.navbar -->
 
-								<li class="divider"></li>
-								<li><a href="#">Separated link</a></li>
-
-								<li class="divider"></li>
-								<li><a href="#">One more separated link</a></li>
-							</ul>
-						</li>
-						<!-- End of dropdown -->
-						
-					</ul>
-				</div> 
-				<!-- End of navMenu -->
-				
-				<!-- Start of navSearch -->
-				<form class="navbar-form navbar-right" role="search" id="navSearch">
-					<div class="form-group">
-						<input type="text" class="form-control" placeholder="Search">
-						<button type="submit" class="btn btn-default">검색</button>
-					</div>
-				</form>
-				<!-- End of navSearch -->
-				
-			</div> <!-- End of container -->
-		</div> <!-- End of navbar-inner -->
-	</div> 
-	<!-- End of NavBar -->
-	
-	<!-- Start of container -->
-	<div class="container">
-	
-		<!-- Start of hero-unit -->
-		<div class="hero-unit">
-			<h1>Protalk</h1>
-			<br>
-			<h3>[CoAP/6LoWPAN 기반 홈네트워크]</h3>
-		</div>
-		<!-- End of hero-unit -->
-
-		<!-- Start of span4 row-->
-		<div class="row-fluid">
-			<div class="span4">
-				<h2>Span 4</h2>
-				<input id="first" class="btn btn-danger" type="button"
-					value="Section 2" />
-			</div>
-			<div class="span4">
-				<h2>Span 4</h2>
-				<input id="second" class="btn btn-info" type="button"
-					value="Alert Color" />
-			</div>
-			<div class="span4">
-				<h2>Span 4</h2>
-				<input id="third" class="btn btn-primary" type="button"
-					value="Progress" />
-			</div>
-		</div>
-		<!-- End of span4 row-->
-		
-		<!-- Start of span6 row-->
-		<div class="row-fluid">
-			<div class="span6">
-				<h2>SPAN 6</h2>
-				<div class="tabbable">
-					<!-- Only required for left/right tabs -->
-					<ul class="nav nav-tabs">
-						<li class="active"><a href="#tab1" data-toggle="tab">Section
-								1</a></li>
-						<li><a href="#tab2" data-toggle="tab" id="section2">Section
-								2</a></li>
-					</ul>
-					<div class="tab-content">
-						<div class="tab-pane active" id="tab1">Section 1.</div>
-						<div class="tab-pane" id="tab2">Section 2.</div>
-					</div>
-				</div>
-			</div>
-			<div class="span6">
-				<h2>SPAN 6</h2>
-				<div class="progress">
-					<div id="bar" class="bar" style="width: 50px;"></div>
-				</div>
-				<div class="progress progress-danger progress-striped active">
-					<div id="bar" class="bar" style="width: 50px;"></div>
-				</div>
-			</div>
-		</div>
-		<!-- End of span6 row-->
-
-		<!-- Start of span12 row -->
-		<div class="row-fluid">
-			<div class="span12">
-				<br>
-				<div class="alert alert-error fade in" id="alert">
-					<a class="close" data-dismiss="alert" href="#">x</a> <strong>SPAN
-						12</strong>
-				</div>
-			</div>
-		</div>
-		<!-- End of span12 row -->
-		
-	</div>
-	<!-- End of container -->
-	
-	<script src="bootstrap/js/bootstrap.js"></script>
-	<script>
-		$(document).ready(function() {
-
-			$("#first").click(function() {
-				$("#section2").trigger("click");
-			});
-
-			$("#second").toggle(function() {
-				$("#alert").removeClass("alert-error");
-				$("#alert").addClass("alert-info");
-			}, function() {
-				$("#alert").removeClass("alert-info");
-				$("#alert").addClass("alert_error");
-			});
-
-			$("#third").click(function() {
-				var width = $("#bar").width();
-				$(".bar").width(width + 50);
-			});
-		});
+      </div> <!-- /.container -->
+    </div><!-- /.navbar-wrapper -->
+  
+  
+  
+    <!-- Carousel
+    ================================================== -->
+    <div id="mainCarousel" class="carousel slide">
+      <div class="carousel-inner">
+        <div class="item active">
+          <img src="assets/img/cool/slide-01.jpg" alt="">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>CoAP/6LoWPAN 기반 홈네트워크</h1>
+              <p class="lead"><b>최근 M2M 및 IoT, WoT 시대로 접어 들면서, 센서 및 각종 디바이스 간에 상호 통신할 수 있는 공통 프로토콜이 필요하게 되었습니다. 이에 차세대 센서 접속 프로토콜 6LoWPAN과 IETF CoAP을 소개하고 간단하게 이를 기반으로 한 홈 네트워크 구축을 다룹니다.</b></p>
+              <a class="btn btn-large btn-primary" href="#">Browse gallery</a>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img src="assets/img/cool/slide-02.jpg" alt="">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>6LoWPAN</h1>
+              <p class="lead"><b>6LoWPAN은 저전력 무선 네트워크의 핵심 기술로서, IP를 사용하기 때문에 기존 구축된 통신 및 응용서비스 인프라와의 호환성이 높습니다. 또한, 잘 알려지고 검증된 IP 기술들을 그대로 사용할 수 있어 안정적이고 신뢰성있는 프로토콜입니다.</b></p>
+              <a class="btn btn-large btn-primary" href="#">Learn more</a>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img src="assets/img/cool/slide-03.jpg" alt="">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>CoAP</h1>
+              <p class="lead"><b>CoAP은 저전력 고손실 네트워크 및 소용량 소형 노드의 통신에 특화된 웹 전송 프로토콜입니다. RESTful 사상을 따르고 있기 때문에, 기존의 HTTP 웹 프로토콜과도 쉽게 변환 및 연동될 수 있습니다.</b></p>
+              <a class="btn btn-large btn-primary" href="#">Learn more</a>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img src="assets/img/cool/slide-02.jpg" alt="">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>카드캡터 체리</h1>
+              <p class="lead"><b>어둠의 힘을 지니고 있는 열쇠여, 진정한 모습으로 내 앞에 나타나라. <br>너와의 계약에 따라 체리가 명한다!</b></p>
+              <a class="btn btn-large btn-primary" href="https://www.listenonrepeat.com/watch?v=e6zp5Qob9ko"> -- 봉인-해제 ! --</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#mainCarousel" data-slide="prev">&lsaquo;</a>
+      <a class="right carousel-control" href="#mainCarousel" data-slide="next">&rsaquo;</a>
+    </div><!-- /.carousel -->
+    
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+  
+    <div class="container marketing">
+  
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+        <div class="span4">
+          <div class="div-img-circle">
+            <img class="img-circle" src="assets/img/cool/xbee_cut.jpg">
+          </div>
+          <h2>배경</h2>
+          <p>저전력 무선 네트워크의 핵심 기술로 높은 주목을 받고 있는 ZigBee 기술은 open standard, 즉 누구나 자신의 목적에 맞게 사용할 수 있는 표준 기술이 아니며 "ZigBee Alliance"에 가입한 멤버에 한해서 기술 사용이 가능합니다.</p>
+          <p><a class="btn" href="#">View details &raquo;</a></p>
+        </div><!-- /.span4 -->
+        <div class="span4">
+          <div class="div-img-circle">
+            <img class="img-circle" src="assets/img/cool/6lowpan_stack_cut.jpg">
+          </div>
+          <h2>6LoWPAN</h2>
+          <p>이에 저전력 무선 네트워크 기술을 개발하는 기업을 중심으로 이미 익숙하고 널리 활용되어 왔던 IP 프로토콜을 이용하여 IEEE 802.15.4 기반의 ZigBee 대응 기술을 개발하고자 하는 움직임을 보였고, 2005년 3월 62차 IETF 회의에서는 6LoWPAN WG(워킹그룹)를 창설하였습니다.</p>
+          <p><a class="btn" href="#">View details &raquo;</a></p>
+        </div><!-- /.span4 -->
+        <div class="span4">
+          <div class="div-img-circle">
+            <img class="img-circle" src="assets/img/cool/IPv6_cut.jpg">
+          </div>
+          <h2>IPv6</h2>
+          <p>6LoWPAN 워킹그룹은 LoWPAN 상에서 IPv6 패킷 전송 방안을 정의하는 것을 목표로 하고 있습니다. LoWPAN에서는 기존 네트워크들에 비해 상당히 많은 수의 노드가 배치되어야 하므로 큰 주소 공간과 자동 주소설정과 같은 기능을 내장하고 있는 IPv6가 적합합니다. 따라서 6LoWPAN에서는 IPv4는 고려하지 않습니다.</p>
+          <p><a class="btn" href="#">View details &raquo;</a></p>
+        </div><!-- /.span4 -->
+      </div><!-- /.row -->
+  
+  
+      <!-- START THE FEATURETTES -->
+  
+      <hr class="featurette-divider">
+  
+      <div class="featurette">
+        <div align="center"><img class="featurette-image" src="assets/img/cool/6lowpan_stack.jpg"></div>
+        <h2 class="featurette-heading">6LoWPAN<br><span class="muted">IP와 물리 계층의 중간 프로토콜</span></h2>
+        <p class="lead">6LoWPAN 워킹그룹은 LoWPAN 상에서 IPv6 패킷 전송 방안을 정의하는 것을 목표로 하고 있습니다. 어떻게 하면 데이터 전송 속도가 느린 IEEE 802.15.4 기술을 통해 헤더 사이즈가 큰 IPv6 패킷을 효율적이고 안전하게 전달하고, 또 전달하고자 하는 장치들을 어떻게 검색할 것인지에 대한 내용을 연구하는 것입니다. 또한 IEEE 802.15.4 기술이 사용하는 MAC 주소를 이용하여 IPv6 자동 주소설정 기능을 어떻게 수행할 것인가에 대한 내용도 포함되어 있습니다.</p>
+      </div>
+  
+      <hr class="featurette-divider">
+  
+      <div class="featurette">
+        <div align="center"><img class="featurette-image" src="assets/img/cool/HTTP_CoAP.png"></div>
+        <h4 class="featurette-heading">CoAP<br><span class="muted">RFC 7252 Constrained Application Protocol</span></h4>
+        <p class="lead">CoAP은 Internet of Things 시대의 저전력 고손실 네트워크 및 소용량 소형 노드의 통신에 특화된 웹 전송 프로토콜로서, 스마트 에너지와 건물 자동화 같은 M2M(machine-to-machine) 애플리케이션을 위해 설계되었습니다. 기본적으로 IPv6를 지원하는 6LoWPAN을 하위 프로토콜로 생각하고 있으므로 CoAP 표준의 주요 목표는 전달하는 메시지 자체를 가능한 작게 하여 메시지 Payload가 단편화되는 현상을 막으면서 필요로하는 이벤트 요청 응답, Resource Discovery를 가능하게 하는 것입니다.</p>
+      </div>
+  
+      <hr class="featurette-divider">
+  
+      <!-- /END THE FEATURETTES -->
+  
+  
+      <!-- FOOTER -->
+      <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>&middot; 2017 Protalk &middot; 종합설계 프로젝트 &middot; 세션 2-10 &middot; 한국산업기술대학교 &middot;</p>
+      </footer>
+  
+    </div><!-- /.container -->
+    
+  <!-- Le javascript
+    ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+  <script src="bootstrap/js/bootstrap.js"></script>
+  <script>
+  	!function($) {
+  		$(function() { // $(document).ready(function() {
+  			$('#mainCarousel').carousel({ // $('.carousel').carousel({
+  				interval: 5000
+  			});
+  		});
+  	}(window.jQuery);
 	</script>
-	
+  
+  
 </body>
-
 </html>
 
 

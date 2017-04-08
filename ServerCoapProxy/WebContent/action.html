@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8" />
+	<title>protalk frontend</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="nah whatever">
+    <meta name="author" content="nanite@naver.com">
+
+	<!-- Le styles -->
+	<link href="assets/css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+
+      @media (max-width: 980px) {
+        /* Enable use of floated navbar text */
+        .navbar-text.pull-right {
+          float: none;
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+      }
+      
+      .hero-unit {
+        padding: 60px;/* CHANGE PADDING HERE*/
+        margin-bottom: 30px; 
+        font-size: 18px;
+        font-weight: 200;
+        line-height: 30px;
+        color: inherit;
+        background-color: #eeeeee; /* CHANGE BACKGROUND HERE*/
+        -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+        border-radius: 6px;
+      }
+    </style>
+	<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="assets/ico/speech-balloon-orange-p-icon.png">
+</head>
+
+<body>	
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="./index.html#Protalk">Protalk</a>
+          <div class="nav-collapse collapse">
+            <p class="navbar-text pull-right">
+            	[ CoAP/6LoWPAN 기반 홈네트워크 ]
+            </p>
+            <ul class="nav">
+              <li class="">
+                <a href="./index.html#Home">Home</a>
+              </li>
+              <li class="active">
+                <a href="./action.html#Action">Action</a>
+              </li>
+              <!-- Read about Bootstrap dropdowns at http://twbs.github.com/bootstrap/javascript.html#dropdowns -->
+              <li class="dropdown">
+                <a href="#More" class="dropdown-toggle" data-toggle="dropdown">
+                  More <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">흐음...</a></li>
+                    <li><a href="#">뭘 넣으면 좋을까요?</a></li>
+                    <li><a href="#">코카콜라</a></li>
+                    <li class="divider"></li>
+                    <li class="nav-header">거실이라고 할까</li>
+                    <li><a href="#">LED1</a></li>
+                    <li><a href="#">LED2</a></li>
+                    <li><a href="#">LED3</a></li>
+                    <li class="nav-header">종류; 카테고리</li>
+                    <li><a href="#">한놈</a></li>
+                    <li><a href="#">두식</a></li>
+                    <li><a href="#">석삼</a></li>
+                </ul>
+              </li>
+              <li class="">
+                <a href="#About">About</a>
+              </li>
+              <li class="">
+                <a href="#Contact">Contact</a>
+              </li>
+              <li class="">
+                <a href="./test.html#Test">Test</a>
+              </li>
+            </ul>
+            <form class="navbar-form">
+              <input class="span2" type="search" placeholder="Search">
+              <button type="submit" class="btn">Go</button>
+            </form>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header">거실</li>
+              <li class=""><a href="#">전등1</a></li> <!-- <li class="active"> -->
+              <li class=""><a href="#">전등2</a></li>
+              <li class=""><a href="#">전등3</a></li>
+              <li class=""><a href="#">창문</a></li>
+              <li class="nav-header">화장실</li>
+              <li class=""><a href="#">머시기</a></li>
+              <li class="nav-header">주방</li>
+              <li class=""><a href="#">화재감지기</a></li>
+              <li class=""><a href="#">냠냠</a></li>
+              <li class=""><a href="#">야옹</a></li>
+              <li class="nav-header">침실</li>
+              <li class=""><a href="#">온습도계</a></li>
+              <li class=""><a href="#">선풍기</a></li>
+              <li class=""><a href="#">에어컨</a></li>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span-->
+        <div class="span9">
+          <div class="hero-unit">
+            <h1>제어판</h1>
+            <p>제어할 수 있는 노드들이 왼쪽 메뉴와 아래 격자에 표시됩니다. 노드들의 상태는 리소스 디렉토리 서버에 요청하여 받아오며 웹페이지에서 동적으로 갱신합니다.</p>
+            <p><a href="#" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+          </div>
+          <div class="row-fluid">
+            <div class="span4">
+              <h2>IoT 노드 1 이름</h2>
+              <p>IoT 노드의 설명입니다. 뭐 일단은... 설명이 있다고 상상해 주세요. ... ... ... ... ... 다른 하나는 그것이 없으며 필연적으로 없을 수밖에 없는 길, 그것은 말하노니 전혀 생각할 수도 없노라, 왜냐하면 그대는 있지 않은 것을 알 수도 말할 수도 없기 때문이다.</p>
+              <p><a class="btn" href="#">View details &raquo;</a></p>
+            </div><!--/span-->
+            <div class="span4">
+              <h2>IoT 노드 2 이름</h2>
+              <p>IoT 노드의 설명입니다. 뭐 일단은... 설명이 있다고 상상해 주세요. ... ... ... ... ... 다른 하나는 그것이 없으며 필연적으로 없을 수밖에 없는 길, 그것은 말하노니 전혀 생각할 수도 없노라, 왜냐하면 그대는 있지 않은 것을 알 수도 말할 수도 없기 때문이다.</p>
+              <p><a class="btn" href="#">View details &raquo;</a></p>
+            </div><!--/span-->
+            <div class="span4">
+              <h2>IoT 노드 3 이름</h2>
+              <p>아메리카 사자: 먼 옛날, 사자는 전 세계에 걸쳐서 살고 있었다. 그 중에서 가장 몸집이 컸던 것이 아메리카 사자다. 겉모습은 오늘날의 사자와 매우 비슷하며, 우람한 앞발과 날카로운 발톱, 뼈까지 부수는 강인한 턱으로 몸집이 큰 초식동물을 사냥했을 것이다. 단순하지만 강력한 무기와 힘 때문에 백수의 왕으로 불리는 사자는 아주 먼 옛날 아메리카 대륙에서도 변함 없이 왕으로 군림하였다!</p>
+              <p><a class="btn" href="#">View details &raquo;</a></p>
+            </div><!--/span-->
+          </div><!--/row-->
+          <div class="row-fluid">
+            <div class="span4">
+              <h2>IoT 노드 4 이름</h2>
+              <p>IoT 노드의 설명입니다. 뭐 일단은... 설명이 있다고 상상해 주세요. ... ... ... ... ... 다른 하나는 그것이 없으며 필연적으로 없을 수밖에 없는 길, 그것은 말하노니 전혀 생각할 수도 없노라, 왜냐하면 그대는 있지 않은 것을 알 수도 말할 수도 없기 때문이다.</p>
+              <p><a class="btn" href="#">View details &raquo;</a></p>
+            </div><!--/span-->
+            <div class="span4">
+              <h2>IoT 노드 5 이름</h2>
+              <p>아메리카 사자: 먼 옛날, 사자는 전 세계에 걸쳐서 살고 있었다. 그 중에서 가장 몸집이 컸던 것이 아메리카 사자다. 겉모습은 오늘날의 사자와 매우 비슷하며, 우람한 앞발과 날카로운 발톱, 뼈까지 부수는 강인한 턱으로 몸집이 큰 초식동물을 사냥했을 것이다. 단순하지만 강력한 무기와 힘 때문에 백수의 왕으로 불리는 사자는 아주 먼 옛날 아메리카 대륙에서도 변함 없이 왕으로 군림하였다!</p>
+              <p><a class="btn" href="#">View details &raquo;</a></p>
+            </div><!--/span-->
+            <div class="span4">
+              <h2>IoT 노드 6 이름</h2>
+              <p>IoT 노드의 설명입니다. 뭐 일단은... 설명이 있다고 상상해 주세요. ... ... ... ... ... 다른 하나는 그것이 없으며 필연적으로 없을 수밖에 없는 길, 그것은 말하노니 전혀 생각할 수도 없노라, 왜냐하면 그대는 있지 않은 것을 알 수도 말할 수도 없기 때문이다.</p>
+              <p><a class="btn" href="#">View details &raquo;</a></p>
+            </div><!--/span-->
+          </div><!--/row-->
+        </div><!--/span-->
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <p>&copy; Company 2013</p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+	
+	<!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+	<script src="bootstrap/js/bootstrap.js"></script>
+	
+</body>
+
+</html>
+
+
+
