@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8" />
+	<title>protalk frontend</title>
+
+	<!-- Start of bootstrap css -->
+	<link href="assets/css/bootstrap.css" rel="stylesheet" />
+	<link href="assets/css/bootstrap-responsive.css" rel="stylesheet" />
+	<!-- End of bootstrap css -->
+	
+	<style type="text/css">
+		body {
+			background-color: #C0DEED;
+			padding-top: 60px;
+			padding-bottom: 40px;
+		}
+		.row-fluid div[class*="span"] {
+			background-color: white;
+			-webkit-border-radius: 6px;
+			-moz-border-radius: 6px;
+			border-radius: 6px;
+			margin-bottom: 10px !important;
+			text-align: center;
+		}
+    
+    /* MARKETING CONTENT
+    -------------------------------------------------- */
+    /* Center align the text within the three columns below the carousel */
+    .marketing .span4 {
+      text-align: center;
+    }
+    .marketing h2 {
+      font-weight: normal;
+    }
+    .marketing .span4 p {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+    
+	</style>
+</head>
+
+<body>
+	
+	<!-- Start of jquery & bootstrap  -->
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+	<script src="assets/js/bootstrap.js"></script>
+	<!-- End of jquery & bootstrap  -->
+	
+	<!-- Start of NavBar -->
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+			
+				<a class="brand" href="#">Protalk</a> <a class="btn btn-navbar"
+					data-toggle="collapse" data-target="#navMenu"> <span
+					class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+				</a>
+				
+				<!-- Start of navMenu -->
+				<div class="nav-collapse" id="navMenu">
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="#">메인 화면</a></li>
+						<li><a href="#">종류별 장치 제어</a></li>
+						<li><a href="#">모드별 장치 제어</a></li>
+						<li class="divider"></li>
+						
+						<!-- Start of dropdown -->
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
+								[ UI Test ] <b class="caret"></b>
+							</a>
+							<ul class="dropdown-menu">
+								<li><a href="#">jmeter</a></li>
+								<li><a href="#">EJB</a></li>
+								<li><a href="#">Jasper Report</a></li>
+
+								<li class="divider"></li>
+								<li><a href="#">Separated link</a></li>
+
+								<li class="divider"></li>
+								<li><a href="#">One more separated link</a></li>
+							</ul>
+						</li>
+						<!-- End of dropdown -->
+						
+					</ul>
+				</div> 
+				<!-- End of navMenu -->
+				
+				<!-- Start of navSearch -->
+				<form class="navbar-form navbar-right" role="search" id="navSearch">
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Search">
+						<button type="submit" class="btn btn-default">검색</button>
+					</div>
+				</form>
+				<!-- End of navSearch -->
+				
+			</div> <!-- End of container -->
+		</div> <!-- End of navbar-inner -->
+	</div> 
+	<!-- End of NavBar -->
+	
+	<!-- Start of container -->
+	<div class="container">
+	
+		<!-- Start of hero-unit -->
+		<div class="hero-unit">
+			<h1>Protalk</h1>
+			<br>
+			<h3>[CoAP/6LoWPAN 기반 홈네트워크]</h3>
+		</div>
+		<!-- End of hero-unit -->
+
+		<!-- Start of span4 row-->
+		<div class="row-fluid">
+			<div class="span4">
+				<h2>Span 4</h2>
+				<input id="first" class="btn btn-danger" type="button"
+					value="Section 2" />
+			</div>
+			<div class="span4">
+				<h2>Span 4</h2>
+				<input id="second" class="btn btn-info" type="button"
+					value="Alert Color" />
+			</div>
+			<div class="span4">
+				<h2>Span 4</h2>
+				<input id="third" class="btn btn-primary" type="button"
+					value="Progress" />
+			</div>
+		</div>
+		<!-- End of span4 row-->
+		
+		<!-- Start of span6 row-->
+		<div class="row-fluid">
+			<div class="span6">
+				<h2>SPAN 6</h2>
+				<div class="tabbable">
+					<!-- Only required for left/right tabs -->
+					<ul class="nav nav-tabs">
+						<li class="active"><a href="#tab1" data-toggle="tab">Section
+								1</a></li>
+						<li><a href="#tab2" data-toggle="tab" id="section2">Section
+								2</a></li>
+					</ul>
+					<div class="tab-content">
+						<div class="tab-pane active" id="tab1">Section 1.</div>
+						<div class="tab-pane" id="tab2">Section 2.</div>
+					</div>
+				</div>
+			</div>
+			<div class="span6">
+				<h2>SPAN 6</h2>
+				<div class="progress">
+					<div id="bar" class="bar" style="width: 50px;"></div>
+				</div>
+				<div class="progress progress-danger progress-striped active">
+					<div id="bar" class="bar" style="width: 50px;"></div>
+				</div>
+			</div>
+		</div>
+		<!-- End of span6 row-->
+
+		<!-- Start of span12 row -->
+		<div class="row-fluid">
+			<div class="span12">
+				<br>
+				<div class="alert alert-error fade in" id="alert">
+					<a class="close" data-dismiss="alert" href="#">x</a> <strong>SPAN
+						12</strong>
+				</div>
+			</div>
+		</div>
+		<!-- End of span12 row -->
+		
+    <!-- Three columns of text below the carousel -->
+    <div class="row">
+      <div class="span4">
+        <img class="img-circle" data-src="holder.js/140x140">
+        <h2>Heading</h2>
+        <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
+        <p><a class="btn" href="#">View details &raquo;</a></p>
+      </div><!-- /.span4 -->
+      <div class="span4">
+        <img class="img-circle" data-src="holder.js/140x140">
+        <h2>Heading</h2>
+        <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+        <p><a class="btn" href="#">View details &raquo;</a></p>
+      </div><!-- /.span4 -->
+      <div class="span4">
+        <img class="img-circle" data-src="holder.js/140x140">
+        <h2>Heading</h2>
+        <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+        <p><a class="btn" href="#">View details &raquo;</a></p>
+      </div><!-- /.span4 -->
+    </div><!-- /.row -->
+    
+    <div class="wrapper">
+      <h1>Bootstrap Buttons</h1>
+      <a href="" class="btn">Read More</a>
+      <a href="" class="btn btn-primary">Read More</a>
+      <a href="" class="btn btn-info">Read More</a>
+      <a href="" class="btn btn-success">Read More</a>
+      <a href="" class="btn btn-warning">Read More</a>
+      <a href="" class="btn btn-danger">Read More</a>
+      <a href="" class="btn btn-inverse">Read More</a>
+      <a href="" class="btn btn-large">Read More</a>
+      <a href="" class="btn btn-small">Read More</a>
+      <a href="" class="btn btn-mini">Read More</a>
+    </div>
+  
+	</div>
+	<!-- End of container -->
+	
+	<script src="assets/js/bootstrap.js"></script>
+	<script>
+		$(document).ready(function() {
+
+			$("#first").click(function() {
+				$("#section2").trigger("click");
+			});
+
+			$("#second").toggle(function() {
+				$("#alert").removeClass("alert-error");
+				$("#alert").addClass("alert-info");
+			}, function() {
+				$("#alert").removeClass("alert-info");
+				$("#alert").addClass("alert_error");
+			});
+
+			$("#third").click(function() {
+				var width = $("#bar").width();
+				$(".bar").width(width + 50);
+			});
+		});
+		
+		$('a').click(function(){
+			  return false
+			  //just so you can click the buttons without reload
+			});
+	</script>
+	
+</body>
+
+</html>
+
+
+
