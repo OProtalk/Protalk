@@ -61,6 +61,7 @@ void loop() {
     payload[7] = 'R';
     payload[8] = 'L';
     payload[9] = 'D';
+    payload[9] = '!';
     xbee.send(tx);
     Serial.println("Sending TX packets.");
     // LED 표시
