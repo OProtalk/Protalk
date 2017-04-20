@@ -3,17 +3,12 @@ package com.protalk.coap_client_1;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
-
 import org.eclipse.californium.core.CoapResource;
 import org.eclipse.californium.core.CoapServer;
 import org.eclipse.californium.core.coap.CoAP.ResponseCode;
 import org.eclipse.californium.core.server.resources.CoapExchange;
-
 import java.util.List;
 
-/**
- * Created by nanit on 2017-03-12.
- */
 public class ServerService extends Service {
 
     CoapServer server;
