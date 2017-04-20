@@ -13,7 +13,6 @@ import org.eclipse.californium.core.CoapResponse;
 public class MainActivity extends AppCompatActivity {
 
     MyCoapGet myCoap;
-
     Button btnGet;
     TextView textGet;
     Button btnPut;
