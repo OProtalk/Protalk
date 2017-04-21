@@ -11,5 +11,5 @@
 - `ServerCoapRd` for `RD 서버`
 - `ServerCoapProxy` for `프록시 서버`
 - `ClientCoapAndroid` for `안드로이드 클라이언트`
-- `Arduino-Coap` for `센서 노드`
+- `` for `센서 노드`
 - - -
