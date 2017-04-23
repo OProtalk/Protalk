@@ -9,6 +9,7 @@
 
 ## Subtrees
 - `ServerCoapRd` for `RD 서버`
+- `ServerCoapBroker` for `XBee 브로커 서버`
 - `ServerCoapProxy` for `프록시 서버`
 - `ClientCoapAndroid` for `안드로이드 클라이언트`
 - `` for `센서 노드`
