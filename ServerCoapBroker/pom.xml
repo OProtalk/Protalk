@@ -8,13 +8,13 @@
 		결과물의 파일 형식을 뜻한다. 값은 웹 어플리케이션인 경우 war, 일반 어플리케이션인 경우 jar가 된다. 4. version은 
 		프로젝트의 버전을 말한다. 임의로 설정한다. -->
 	<groupId>com.protalk</groupId>
-	<artifactId>ServerCoapRd</artifactId>
+	<artifactId>ServerCoapBroker</artifactId>
 	<packaging>jar</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 
 	<!-- 프로젝트 추가 정보 기술. 빌드에 전혀 영향 주지 않기 때문에 없어도 되는 내용이다. -->
-	<name>ServerCoapRd</name>
-	<url>https://github.com/OProtalk/ServerCoapRd</url>
+	<name>ServerCoapBroker</name>
+	<url>https://github.com/OProtalk/ServerCoapBroker</url>
 
 	<!-- properties의 항목을 정의하는 것은 변수나 상수의 선언처럼 어떤 값들에게 이름을 지어 주는 것이다. -->
 	<properties>
@@ -57,7 +57,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>com.protalk.rd.RdServer</mainClass>
+							<mainClass>com.protalk.broker.BrokerServer</mainClass>
 							<addClasspath>true</addClasspath>
 							<classpathPrefix>${lib.dir}/</classpathPrefix>
 						</manifest>

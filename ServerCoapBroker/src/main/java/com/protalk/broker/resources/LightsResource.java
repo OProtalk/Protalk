@@ -1,19 +1,17 @@
-package com.protalk.rd.resources;
+package com.protalk.broker.resources;
 
 import org.eclipse.californium.core.*;
 import org.eclipse.californium.core.server.resources.*;
 
 import com.protalk.serial.*;
 
-public class WeatherResource extends CoapResource {
+public class LightsResource extends CoapResource {
 	
-	public WeatherResource(Serial _serial) {
-		super("Weather");
-		add(new HumidityResource(_serial));
-		add(new TemperatureResource(_serial));
-		add(new PpmResource(_serial));
-		add(new FlameDetectionResource(_serial));
-//		add(new DustSensorResource(_serial));
+	public LightsResource(Serial _serial) {
+		super("Lights");
+		add(new Led1Resource(_serial));
+		add(new Led2Resource(_serial));
+		add(new Led3Resource(_serial));
 	}
 	
 	@Override
@@ -40,4 +38,4 @@ public class WeatherResource extends CoapResource {
 		super.handleDELETE(exchange);
 	}
 	
-}
+} // public class

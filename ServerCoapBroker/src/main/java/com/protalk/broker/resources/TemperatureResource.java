@@ -1,4 +1,4 @@
-package com.protalk.rd.resources;
+package com.protalk.broker.resources;
 
 import com.protalk.serial.*;
 
