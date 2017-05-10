@@ -14,8 +14,8 @@ sudo hciconfig hci0 leadv
 
 # Routing setup: Add the IP prefix to all the interfaces.
 #route -6 # Display all existing IPv6 routes list
-sudo ifconfig bt0 add 2005::1/64 # Add 2005::1/64 to the routing table.
-sudo ifconfig eth0 add 2004::1/64 # Just another route.
-sudo ifconfig wlan0 add 2003::1/64 # Just another route.
+sudo ifconfig bt0 add 2005::1/64
+sudo ifconfig eth0 add 2004::1/64
+sudo ifconfig wlan0 add 2003::1/64
 
 echo -e ${CYAN}---------- end of `basename "$0"` ----------${NC}
