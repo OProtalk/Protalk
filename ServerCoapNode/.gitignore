@@ -1,0 +1,23 @@
+#make clean
+*~
+*core
+core
+*.srec
+*.lst
+*.map
+*.cprg
+*.bin
+*.data
+contiki*.a
+*.firmware
+core-labels.S *.ihex
+*.ini
+*.ce
+*.co
+*.srf06-cc26xx
+symbols.c
+symbols.h
+*.d
+*.elf
+*.hex
+obj_srf06-cc26xx/
