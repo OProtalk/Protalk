@@ -37,8 +37,16 @@ echo -e '\t\tAdvAutonomous on;'
 echo -e '\t\tAdvRouterAddr off;'
 echo -e '\t};'
 echo -e '};'
+echo -e 'interface wlan1 {'
+echo -e '\tAdvSendAdvert on;'
+echo -e '\tprefix 2002::/64 {'
+echo -e '\t\tAdvOnLink on;'
+echo -e '\t\tAdvAutonomous on;'
+echo -e '\t\tAdvRouterAddr off;'
+echo -e '\t};'
+echo -e '};'
 } | sudo tee /etc/radvd.conf
-echo 1 | sudo tee /proc/sys/net/ipv6/conf/all/forwarding # > /dev/null # Set IPv6 forwarding.
+echo 1 | sudo tee /proc/sys/net/ipv6/conf/all/forwarding # > /dev/null # Enable IPv6 forwarding.
 sudo service radvd restart
 
 # Mount the debugfs file system to /sys/kernel/debug. You can ls to check the contents of the folder.

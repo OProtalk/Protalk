@@ -17,5 +17,6 @@ sudo hciconfig hci0 leadv
 sudo ifconfig bt0 add 2005::1/64
 sudo ifconfig eth0 add 2004::1/64
 sudo ifconfig wlan0 add 2003::1/64
+sudo ifconfig wlan1 add 2002::1/64
 
 echo -e ${CYAN}---------- end of `basename "$0"` ----------${NC}
