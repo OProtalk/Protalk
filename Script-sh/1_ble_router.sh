@@ -46,7 +46,7 @@ echo -e '\t\tAdvRouterAddr off;'
 echo -e '\t};'
 echo -e '};'
 } | sudo tee /etc/radvd.conf
-echo 1 | sudo tee /proc/sys/net/ipv6/conf/all/forwarding # > /dev/null # Enable IPv6 forwarding.
+echo 1 | sudo tee /proc/sys/net/ipv6/conf/all/forwarding # > /dev/null # Enable IPv6 forwarding. This machine must be configured as a Router by doing so otherwise RADVD will not start. # sudo sysctl -w net.ipv6.conf.eth0.forwarding=1
 sudo service radvd restart
 
 # Mount the debugfs file system to /sys/kernel/debug. You can ls to check the contents of the folder.
