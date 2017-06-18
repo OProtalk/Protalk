@@ -40,6 +40,7 @@ echo -e 'wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf'
 echo -e ''
 echo -e 'iface default inet dhcp'
 } | sudo tee /etc/network/interfaces
+echo
 
 echo -e "${YELLOW}/etc/6lbr/6lbr.conf${NC}"
 {
@@ -67,18 +68,20 @@ echo -e 'BAUDRATE=115200'
 echo -e ''
 echo -e 'LOG_LEVEL=3 #INFO and above only'
 } | sudo tee /etc/6lbr/6lbr.conf
-
-echo
-echo -e "${YELLOW}Lastly you might want to edit texts in /etc/wpa_supplicant/wpa_supplicant.conf as well. Google wpa_supplicant.conf for help. Then ${GREEN}sudo reboot${YELLOW} after finshing everything you needed to start using 6lbr.${NC}"
 echo
 
 echo dwc_otg.speed=1 `cat /boot/cmdline.txt` | sudo tee /boot/cmdline.txt # This enables the support for the high baudrate usb-serial SLIP connector with the slip-radio mote. (slip_radio node)
 #sudo reboot
+echo
 
-sudo /usr/lib/6lbr/bin/nvm_tool --update --channel 25 /etc/6lbr/nvm.dat # To change to a different channel, 25, which is used by cc26xx Contiki port.
-sudo /usr/lib/6lbr/bin/nvm_tool --update --wsn-prefix aaaa:: /etc/6lbr/nvm.dat # Set WSN (network) prefix to aaaa::
-#/usr/lib/6lbr/bin/nvm_tool --print /etc/6lbr/nvm.dat # To see the configurations set above. # Or visit http://[bbbb::100]/config.html
+sudo /usr/lib/6lbr/bin/nvm_tool --update --channel 25 /etc/6lbr/nvm.dat > /dev/null # To change to a different channel, 25, which is used by cc26xx Contiki port.
+sudo /usr/lib/6lbr/bin/nvm_tool --update --wsn-prefix aaaa:: /etc/6lbr/nvm.dat > /dev/null # Set WSN (network) prefix to aaaa::
+#/usr/lib/6lbr/bin/nvm_tool --print /etc/6lbr/nvm.dat # To see the configurations set above. # Or visit http://[bbbb::100]/config.html for even more info.
 
 sudo service radvd restart
+
+echo
+echo -e "${YELLOW}Lastly you might want to edit texts in ${GREEN}/etc/wpa_supplicant/wpa_supplicant.conf${YELLOW} as well. Google ${GREEN}wpa_supplicant.conf${YELLOW} for help. Then ${GREEN}sudo reboot${YELLOW} after finshing everything you needed to start using 6lbr.${NC}"
+echo
 
 echo -e ${CYAN}---------- end of `basename "$0"` ----------${NC}
