@@ -14,4 +14,8 @@ sudo brctl addbr br1
 sudo brctl addif br1 tap0 eth0
 sudo brctl show
 
+echo
+echo -e "${YELLOW}Watch ${GREEN}/var/log/6lbr.log${YELLOW} for more.${NC}"
+echo
+
 echo -e ${CYAN}---------- end of `basename "$0"` ----------${NC}
