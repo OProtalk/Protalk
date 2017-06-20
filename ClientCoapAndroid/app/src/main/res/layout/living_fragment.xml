@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/livingLinear"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/livingRltLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/srcLiving"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/living" />
+
+
+        <TextView
+            android:id="@+id/textLivingHum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/srcLiving"
+            android:background="#90ffffff"
+            android:gravity="center"
+            android:text="습도 : "
+            android:textSize="30dp" />
+
+        <TextView
+            android:id="@+id/textLivingPres"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="false"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="false"
+            android:background="#90ffffff"
+            android:gravity="center"
+            android:text="기압 : "
+            android:textSize="30dp" />
+
+        <TextView
+            android:id="@+id/textLivingTemp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:background="#90ffffff"
+            android:gravity="center"
+            android:text="온도 : "
+            android:textSize="30dp" />
+
+        <TextView
+            android:id="@+id/textLivingLux"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/srcLiving"
+            android:layout_alignRight="@+id/srcLiving"
+            android:background="#90ffffff"
+            android:gravity="center"
+            android:text="밝기 : "
+            android:textSize="30dp" />
+    </RelativeLayout>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/listLiving"
+        android:choiceMode="singleChoice"></ListView>
+</LinearLayout>

@@ -1,19 +1,11 @@
 apply plugin: 'com.android.application'
 
-repositories {
-    mavenLocal()
-    maven {
-        url 'https://repo.eclipse.org/content/repositories/californium/'
-    }
-}
-
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
-
     defaultConfig {
-        applicationId "com.protalk.coap_client_1"
-        minSdkVersion 23
+        applicationId "sharkfeel.homeautomation"
+        minSdkVersion 16
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
@@ -40,6 +32,7 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+    compile 'com.android.support:design:25.0.0'
     compile 'com.android.support:appcompat-v7:25.2.0'
     testCompile 'junit:junit:4.12'
     compile 'org.eclipse.californium:californium-core:2.0.0-M3'

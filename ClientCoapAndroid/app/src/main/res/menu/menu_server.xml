@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+
+    <item
+        android:id="@+id/menu_ip_setting"
+        android:orderInCategory="100"
+        android:title="서버IP 설정" />
+    <group>
+        <item
+            android:id="@+id/action_sandbox"
+            android:orderInCategory="1"
+            android:title="@string/action_sandbox"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/action_local"
+            android:orderInCategory="2"
+            android:title="@string/action_local"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/action_get"
+            android:orderInCategory="3"
+            android:title="Get"
+            app:showAsAction="never" />
+    </group>
+    <group>
+        <item
+            android:id="@+id/action_start"
+            android:checkable="true"
+            android:orderInCategory="3"
+            android:title="@string/action_start"
+            app:showAsAction="never" />
+    </group>
+</menu>
