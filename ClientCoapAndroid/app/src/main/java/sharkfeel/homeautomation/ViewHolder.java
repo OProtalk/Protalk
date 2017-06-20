@@ -10,10 +10,7 @@ import android.widget.TextView;
 
 public class ViewHolder {
     public ImageView mIcon;
-
     public TextView mSensorName;
-
     public TextView mData;
-
     public Switch mSwitch;
 }

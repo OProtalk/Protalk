@@ -1,10 +1,8 @@
 package sharkfeel.homeautomation;
 
 import android.content.Context;
-import android.graphics.Interpolator;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -87,69 +85,74 @@ public class ListViewAdapter extends BaseAdapter {
 
         if( mData.mClass.equals("Switch")) {
             holder.mSwitch.setVisibility(View.VISIBLE);
+            holder.mData.setVisibility(View.GONE);
         } else {
             holder.mData.setVisibility(View.VISIBLE);
+            holder.mSwitch.setVisibility(View.GONE);
         }
 
-        String uri2 = "" + mListData.get(pos).mServerIP + mListData.get(pos).mSensorURL;
-        new CoapGetTask(holder).execute(uri2, String.valueOf(pos));
+        if(!mData.bCoapGetTask) {
+            String uri2 = "" + mListData.get(pos).mServerIP + mListData.get(pos).mSensorURL;
+            new CoapObserveTask(holder).execute(uri2, String.valueOf(pos));
+            mData.bCoapGetTask = true;
+        }
 
-
-        holder.mSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                String uri = "" + mListData.get(pos).mServerIP + mListData.get(pos).mSensorURL;
-                if( isChecked == true ) {
-                    new CoapPostTask().execute(uri, "ON");
-                } else {
-                    new CoapPostTask().execute(uri, "OFF");
+        if(!mData.bOnCheckedChangeListener) {
+            holder.mSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    String uri = "" + mListData.get(pos).mServerIP + mListData.get(pos).mSensorURL;
+                    if (isChecked == true) {
+                        new CoapPostTask().execute(uri, "ON");
+                    } else {
+                        new CoapPostTask().execute(uri, "OFF");
+                    }
                 }
-            }
-        });
+            });
+            mData.bOnCheckedChangeListener = true;
+        }
 
         return convertView;
     }
 
-    class CoapGetTask extends AsyncTask<String, String, CoapResponse> {
+    class CoapObserveTask extends AsyncTask<String, String, Object> {
+        private ViewHolder holder;
 
-        ViewHolder holder;
-        public CoapGetTask(ViewHolder viewholder) {
+        public CoapObserveTask(ViewHolder viewholder) {
             holder  = viewholder;
         }
 
-        protected void onPreExecute() {
-            // reset text fields
-        }
-
-        protected CoapResponse doInBackground(String... args) {
-            CoapClient client = new CoapClient(args[0]);
-            final String a = args[1];
+        @Override
+        protected Object doInBackground(String... args) {
+            CoapClient client = new CoapClient(args[0]); // uri
+            final String posView = args[1];
             CoapObserveRelation relation1 = client.observe(new CoapHandler() {
                 @Override
                 public void onLoad(CoapResponse response) {
                     String content = response.getResponseText();
                     Log.i("info", content);
-                    mListData.get(Integer.valueOf(a)).mData = content;
-                    holder.mData.setText(response.getResponseText());
+                    mListData.get(Integer.valueOf(posView)).mData = content;
+                    publishProgress("onLoad", content);
                 }
 
                 @Override
                 public void onError() {
-                    Toast.makeText(mContext, "에러", Toast.LENGTH_SHORT).show();
+                    publishProgress("onError");
                 }
             });
-            return client.get();
+            return null;
         }
 
-        protected void onPostExecute(CoapResponse response) {
-            if (response!=null) {
-                holder.mData.setText(response.getResponseText());
-                Toast.makeText(mContext, response.getResponseText(), Toast.LENGTH_SHORT).show();
-            } else {
+        @Override
+        protected void onProgressUpdate(String... values) {
+            if(values[0].equals("onLoad")) {
+                holder.mData.setText(values[1]);
+            } else if(values[0].equals("onError")) {
                 Toast.makeText(mContext, "에러", Toast.LENGTH_SHORT).show();
-            }
-        }
-    }
+            } // if
+        } // func
+
+    } // class CoapObserveTask
 
     class CoapPostTask extends AsyncTask<String, String, CoapResponse> {
 

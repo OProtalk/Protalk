@@ -19,4 +19,9 @@ public class ListData {
     public String mClass; //클래스가 Switch면 스위치 출력 Text면 텍스트출력
     public Boolean mCheck;
 
+    //
+
+    public boolean bOnCheckedChangeListener;
+    public boolean bCoapGetTask;
+
 }
