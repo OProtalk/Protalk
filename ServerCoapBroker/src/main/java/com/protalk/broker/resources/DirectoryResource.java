@@ -148,7 +148,6 @@ public class DirectoryResource extends CoapResource {
 						// TODO Auto-generated method stub
 						super.onCreate(_serial);
 						add(ControlableResource.getFactory().create(ControlableResource.TYPE_WINDOW, _serial));
-						add(ReadonlyResource.getFactory().create(ReadonlyResource.TYPE_PPM, _serial));
 					}
 				};
 			case TYPE_2_KITCHEN:
@@ -157,7 +156,7 @@ public class DirectoryResource extends CoapResource {
 					protected void onCreate(Serial _serial) {
 						// TODO Auto-generated method stub
 						super.onCreate(_serial);
-						// 텅텅
+						add(ReadonlyResource.getFactory().create(ReadonlyResource.TYPE_PPM, _serial));
 					}
 				};
 			case TYPE_3_YARD:
