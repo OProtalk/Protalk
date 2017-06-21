@@ -24,10 +24,10 @@ public class KitchenFrag extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup)inflater.inflate(R.layout.kitchen_fragment, container, false);
-        ((TextView)rootView.findViewById(R.id.textKitchenHum)).setText("습도 : 30%");
-        ((TextView)rootView.findViewById(R.id.textKitchenPres)).setText("기압 : 30");
-        ((TextView)rootView.findViewById(R.id.textKitchenTemp)).setText("온도 : 30도");
-        ((TextView)rootView.findViewById(R.id.textKitchenLux)).setText("밝기 : 3000");
+//        ((TextView)rootView.findViewById(R.id.textKitchenHum)).setText("습도 : 30%");
+//        ((TextView)rootView.findViewById(R.id.textKitchenPres)).setText("기압 : 30");
+//        ((TextView)rootView.findViewById(R.id.textKitchenTemp)).setText("온도 : 30도");
+//        ((TextView)rootView.findViewById(R.id.textKitchenLux)).setText("밝기 : 3000");
 
         listKitchen = (ListView)rootView.findViewById(R.id.KitchenList);
         mAdapter = new ListViewAdapter(getContext());
@@ -35,48 +35,48 @@ public class KitchenFrag extends Fragment {
 
         mAdapter.addItem(getResources().getDrawable(R.drawable.light_icon),
                 "형광등1",
-                "coap://localhost:5683/",
-                "Kitchen/Lights/Led1",
+                getContext().getResources().getString(R.string.server1_ipv6),
+                "Kitchen/Lights/Led6",
                 "Switch",
                 "data",
                 false);
 
-        mAdapter.addItem(getResources().getDrawable(R.drawable.window_icon),
+        mAdapter.addItem(getResources().getDrawable(R.drawable.toxicgas_icon),
                 "유해가스",
-                "coap://localhost:5683/",
+                getContext().getResources().getString(R.string.server2_ipv6),
                 "Kitchen/Weather/PPM",
                 "Text",
                 "25",
                 false);
 
-        mAdapter.addItem(getResources().getDrawable(R.drawable.window_icon),
+        mAdapter.addItem(getResources().getDrawable(R.drawable.temp_icon),
                 "온도",
-                "coap://localhost:5683/",
-                "Kitchen/Weather/Temperature",
+                getContext().getResources().getString(R.string.sensor3_ipv6),
+                getContext().getResources().getString(R.string.sensor_tempURL),
                 "Text",
                 "25",
                 false);
 
-        mAdapter.addItem(getResources().getDrawable(R.drawable.window_icon),
+        mAdapter.addItem(getResources().getDrawable(R.drawable.hum_icon),
                 "습도",
-                "coap://localhost:5683/",
-                "Kitchen/Weather/Humidity",
+                getContext().getResources().getString(R.string.sensor3_ipv6),
+                getContext().getResources().getString(R.string.sensor_humURL),
                 "Text",
                 "20",
                 false);
 
-        mAdapter.addItem(getResources().getDrawable(R.drawable.window_icon),
+        mAdapter.addItem(getResources().getDrawable(R.drawable.atm_icon),
                 "기압",
-                "coap://localhost:5683/",
-                "Kitchen/Weather/Atmosphere",
+                getContext().getResources().getString(R.string.sensor3_ipv6),
+                getContext().getResources().getString(R.string.sensor_atmURL),
                 "Text",
                 "20",
                 false);
 
-        mAdapter.addItem(getResources().getDrawable(R.drawable.window_icon),
+        mAdapter.addItem(getResources().getDrawable(R.drawable.light_icon),
                 "밝기",
-                "coap://localhost:5683/",
-                "Kitchen/Weather/Lux",
+                getContext().getResources().getString(R.string.sensor3_ipv6),
+                getContext().getResources().getString(R.string.sensor_luxURL),
                 "Text",
                 "20",
                 false);
