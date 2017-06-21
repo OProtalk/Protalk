@@ -46,11 +46,11 @@ public class BrokerServer extends CoapServer {
 			add(DirectoryResource.getFactory().create(DirectoryResource.TYPE_1_YARD, mSerial));
 			break;
 		case 2: // server 2
-			add(DirectoryResource.getFactory().create(DirectoryResource.TYPE_1_BEDROOM, mSerial));
-			add(DirectoryResource.getFactory().create(DirectoryResource.TYPE_1_KITCHEN, mSerial));
+			add(DirectoryResource.getFactory().create(DirectoryResource.TYPE_2_BEDROOM, mSerial));
+			add(DirectoryResource.getFactory().create(DirectoryResource.TYPE_2_KITCHEN, mSerial));
 			break;
 		case 3: // server 3
-			add(DirectoryResource.getFactory().create(DirectoryResource.TYPE_1_YARD, mSerial));
+			add(DirectoryResource.getFactory().create(DirectoryResource.TYPE_3_YARD, mSerial));
 			break;
 		default:
 			System.err.println("Invalid parameter.");
