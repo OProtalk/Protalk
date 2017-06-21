@@ -33,7 +33,7 @@ public class ControlableResource extends CoapResource {
 				public void run() {
 					// TODO Auto-generated method stub
 					try {
-						Thread.sleep(1000);
+						//Thread.sleep(1000); // 1초 기다림
 						int chr = serial.getInputStream().read();
 						if(chr == '1') {
 							exchange2.respond(ResponseCode.CONTENT, "ON");

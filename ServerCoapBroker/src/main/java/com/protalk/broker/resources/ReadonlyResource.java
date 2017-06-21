@@ -1,6 +1,8 @@
 package com.protalk.broker.resources;
 
 import java.io.*;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import org.eclipse.californium.core.*;
 import org.eclipse.californium.core.coap.CoAP.*;
@@ -15,6 +17,22 @@ public class ReadonlyResource extends CoapResource {
 		super(_name);
 		this.serial = _serial;
 		this.REQ_ = _req;
+		//
+		setObservable(true); // enable observing
+		setObserveType(Type.CON); // configure the notification type to CONs
+		getAttributes().setObservable(); // mark observable in the Link-Format
+		
+		// schedule a periodic update task, otherwise let events call changed()
+		Timer timer = new Timer();
+		timer.schedule(new UpdateTask(), 0, 5000);
+	}
+	
+	private class UpdateTask extends TimerTask {
+		@Override
+		public void run() {
+			// .. periodic update of the resource
+			changed(); // notify all observers
+		}
 	}
 
 	@Override
@@ -22,12 +40,14 @@ public class ReadonlyResource extends CoapResource {
 		// TODO Auto-generated method stub
 		try {
 			serial.getOutputStream().write(REQ_);
+			exchange.setMaxAge(5);
 			final CoapExchange exchange2 = exchange;
 			new Thread(new Runnable() {
 				public void run() {
 					// TODO Auto-generated method stub
 					try {
-						Thread.sleep(1000);
+						exchange2.setMaxAge(5); // the Max-Age value should match the update interval
+						//Thread.sleep(1000); // 1초 기다림
 						//String str = new BufferedReader(new InputStreamReader(serial.getInputStream())).readLine(); // 한 줄 읽어 보내
 						int chr = serial.getInputStream().read();
 						if(chr == -1) {
