@@ -39,55 +39,55 @@ public class LivingFrag extends Fragment {
         listLiving.setAdapter(mAdapter);
 
 
-        ((TextView)rootView.findViewById(R.id.textLivingHum)).setText("습도 : 30%");
-        ((TextView)rootView.findViewById(R.id.textLivingPres)).setText("기압 : 30");
-        ((TextView)rootView.findViewById(R.id.textLivingTemp)).setText("온도 : 30도");
-        ((TextView)rootView.findViewById(R.id.textLivingLux)).setText("밝기 : 3000");
+//        ((TextView)rootView.findViewById(R.id.textLivingHum)).setText("습도 : 30%");
+//        ((TextView)rootView.findViewById(R.id.textLivingPres)).setText("기압 : 30");
+//        ((TextView)rootView.findViewById(R.id.textLivingTemp)).setText("온도 : 30도");
+//        ((TextView)rootView.findViewById(R.id.textLivingLux)).setText("밝기 : 3000");
 
         mAdapter.addItem(getResources().getDrawable(R.drawable.light_icon),
                 "형광등1",
-                "coap://localhost:5683/",
-                "Living/Lights/Led1",
+                getContext().getResources().getString(R.string.server1_ipv6),
+                "Living/Lights/Led7",
                 "Switch",
                 "data",
                 false);
 
         mAdapter.addItem(getResources().getDrawable(R.drawable.light_icon),
                 "형광등2",
-                "coap://localhost:5683/",
-                "Living/Lights/Led1",
+                getContext().getResources().getString(R.string.server1_ipv6),
+                "Living/Lights/Led8",
                 "Switch",
                 "data",
                 false);
 
-        mAdapter.addItem(getResources().getDrawable(R.drawable.window_icon),
+        mAdapter.addItem(getResources().getDrawable(R.drawable.temp_icon),
                 "온도",
-                "coap://localhost:5683/",
-                "Living/Weather/Temperature",
+                getContext().getResources().getString(R.string.sensor4_ipv6),
+                getContext().getResources().getString(R.string.sensor_tempURL),
                 "Text",
                 "25",
                 false);
 
-        mAdapter.addItem(getResources().getDrawable(R.drawable.window_icon),
+        mAdapter.addItem(getResources().getDrawable(R.drawable.hum_icon),
                 "습도",
-                "coap://localhost:5683/",
-                "Living/Weather/Humidity",
+                getContext().getResources().getString(R.string.sensor4_ipv6),
+                getContext().getResources().getString(R.string.sensor_humURL),
                 "Text",
                 "20",
                 false);
 
-        mAdapter.addItem(getResources().getDrawable(R.drawable.window_icon),
+        mAdapter.addItem(getResources().getDrawable(R.drawable.atm_icon),
                 "기압",
-                "coap://localhost:5683/",
-                "Living/Weather/Atmosphere",
+                getContext().getResources().getString(R.string.sensor4_ipv6),
+                getContext().getResources().getString(R.string.sensor_atmURL),
                 "Text",
                 "20",
                 false);
 
-        mAdapter.addItem(getResources().getDrawable(R.drawable.window_icon),
+        mAdapter.addItem(getResources().getDrawable(R.drawable.light_icon),
                 "밝기",
-                "coap://localhost:5683/",
-                "Living/Weather/Lux",
+                getContext().getResources().getString(R.string.sensor4_ipv6),
+                getContext().getResources().getString(R.string.sensor_luxURL),
                 "Text",
                 "20",
                 false);

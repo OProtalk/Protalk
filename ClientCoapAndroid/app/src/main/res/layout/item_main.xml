@@ -7,8 +7,8 @@
     <ImageView
         android:id="@+id/imgView"
         android:layout_alignParentLeft="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:src="@drawable/light_icon"
         android:paddingLeft="15dp"/>
 
@@ -16,6 +16,7 @@
         android:id="@+id/tvSensor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="#000"
         android:paddingLeft="20dp"
         android:gravity="center_vertical|center_horizontal|center|fill"
         android:layout_toRightOf="@+id/imgView"
@@ -34,11 +35,13 @@
         android:layout_centerVertical="true"
         android:layout_centerInParent="true"
         android:layout_centerHorizontal="true"
+        android:paddingRight="20dp"
         android:visibility="gone"/>
 
     <TextView
         android:text="1"
         android:id="@+id/tv_Data"
+        android:textSize="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
@@ -46,6 +49,7 @@
         android:layout_centerVertical="true"
         android:layout_centerInParent="true"
         android:layout_centerHorizontal="true"
+        android:paddingRight="20dp"
         android:visibility="gone"/>
 
 

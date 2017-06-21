@@ -81,7 +81,13 @@ public class ListViewAdapter extends BaseAdapter {
 
         holder.mSensorName.setText(mData.mTitle);
         holder.mData.setText(mData.mData);
-        holder.mSwitch.setChecked(mData.mCheck);
+
+        if( mData.mCheck ) {
+            holder.mSwitch.setChecked(true);
+        } else {
+            holder.mSwitch.setChecked(false);
+        }
+
 
         if( mData.mClass.equals("Switch")) {
             holder.mSwitch.setVisibility(View.VISIBLE);
@@ -104,8 +110,10 @@ public class ListViewAdapter extends BaseAdapter {
                     String uri = "" + mListData.get(pos).mServerIP + mListData.get(pos).mSensorURL;
                     if (isChecked == true) {
                         new CoapPostTask().execute(uri, "ON");
+                        mData.mCheck = true;
                     } else {
                         new CoapPostTask().execute(uri, "OFF");
+                        mData.mCheck = false;
                     }
                 }
             });
@@ -132,7 +140,7 @@ public class ListViewAdapter extends BaseAdapter {
                     String content = response.getResponseText();
                     Log.i("info", content);
                     mListData.get(Integer.valueOf(posView)).mData = content;
-                    publishProgress("onLoad", content);
+                    publishProgress("onLoad", posView ,content);
                 }
 
                 @Override
@@ -146,9 +154,18 @@ public class ListViewAdapter extends BaseAdapter {
         @Override
         protected void onProgressUpdate(String... values) {
             if(values[0].equals("onLoad")) {
-                holder.mData.setText(values[1]);
+                holder.mData.setText(values[2]);
+                if( mListData.get(Integer.valueOf(values[1])).mSensorURL.contains("Temperature")) {
+                    holder.mData.append("도");
+                }else if(mListData.get(Integer.valueOf(values[1])).mSensorURL.contains("Humidity")) {
+                    holder.mData.append("%");
+                }else if( mListData.get(Integer.valueOf(values[1])).mSensorURL.contains("Atmosphere")) {
+                    holder.mData.append("atm");
+                }else if( mListData.get(Integer.valueOf(values[1])).mSensorURL.contains("Lux")) {
+                    holder.mData.append("lux");
+                }
             } else if(values[0].equals("onError")) {
-                Toast.makeText(mContext, "에러", Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext, "서버를 확인하세요.", Toast.LENGTH_SHORT).show();
             } // if
         } // func
 
@@ -167,9 +184,10 @@ public class ListViewAdapter extends BaseAdapter {
 
         protected void onPostExecute(CoapResponse response) {
             if (response!=null) {
-                Toast.makeText(mContext, response.getResponseText(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(mContext, response.getResponseText(), Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(mContext, response.getResponseText(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext, "서버를 확인하세요.", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(mContext, response.getResponseText(), Toast.LENGTH_SHORT).show();
             }
         }
     }

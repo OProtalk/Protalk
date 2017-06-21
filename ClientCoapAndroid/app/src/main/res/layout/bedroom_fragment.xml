@@ -24,43 +24,43 @@
             android:layout_alignBottom="@+id/srcBedroom"
             android:background="#90ffffff"
             android:gravity="center"
-            android:text="습도 : "
+            android:text="방"
             android:textSize="30dp" />
 
-        <TextView
-            android:id="@+id/textBedroomPres"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="false"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentStart="false"
-            android:layout_centerInParent="true"
-            android:layout_centerVertical="false"
-            android:background="#90ffffff"
-            android:gravity="center"
-            android:text="기압 : "
-            android:textSize="30dp" />
+        <!--<TextView-->
+            <!--android:id="@+id/textBedroomPres"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentLeft="false"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_alignParentStart="false"-->
+            <!--android:layout_centerInParent="true"-->
+            <!--android:layout_centerVertical="false"-->
+            <!--android:background="#90ffffff"-->
+            <!--android:gravity="center"-->
+            <!--android:text="기압 : "-->
+            <!--android:textSize="30dp" />-->
 
-        <TextView
-            android:id="@+id/textBedroomTemp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:background="#90ffffff"
-            android:gravity="center"
-            android:text="온도 : "
-            android:textSize="30dp" />
+        <!--<TextView-->
+            <!--android:id="@+id/textBedroomTemp"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:background="#90ffffff"-->
+            <!--android:gravity="center"-->
+            <!--android:text="온도 : "-->
+            <!--android:textSize="30dp" />-->
 
-        <TextView
-            android:id="@+id/textBedroomLux"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/srcBedroom"
-            android:layout_alignRight="@+id/srcBedroom"
-            android:background="#90ffffff"
-            android:gravity="center"
-            android:text="밝기 : "
-            android:textSize="30dp" />
+        <!--<TextView-->
+            <!--android:id="@+id/textBedroomLux"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignBottom="@+id/srcBedroom"-->
+            <!--android:layout_alignRight="@+id/srcBedroom"-->
+            <!--android:background="#90ffffff"-->
+            <!--android:gravity="center"-->
+            <!--android:text="밝기 : "-->
+            <!--android:textSize="30dp" />-->
     </RelativeLayout>
 
     <ListView

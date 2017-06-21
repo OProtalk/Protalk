@@ -36,10 +36,10 @@ public class BedroomFrag extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup)inflater.inflate(R.layout.bedroom_fragment, container, false);
 
-        ((TextView)rootView.findViewById(R.id.textBedroomHum)).setText("습도 : 30%");
-        ((TextView)rootView.findViewById(R.id.textBedroomPres)).setText("기압 : 30");
-        ((TextView)rootView.findViewById(R.id.textBedroomTemp)).setText("온도 : 30도");
-        ((TextView)rootView.findViewById(R.id.textBedroomLux)).setText("밝기 : 3000");
+//        ((TextView)rootView.findViewById(R.id.textBedroomHum)).setText("습도 : 30%");
+//        ((TextView)rootView.findViewById(R.id.textBedroomPres)).setText("기압 : 30");
+//        ((TextView)rootView.findViewById(R.id.textBedroomTemp)).setText("온도 : 30도");
+//        ((TextView)rootView.findViewById(R.id.textBedroomLux)).setText("밝기 : 3000");
 
         listBedRoom = (ListView)rootView.findViewById(R.id.bedroomList);
         mAdapter = new ListViewAdapter(getContext());
@@ -47,7 +47,7 @@ public class BedroomFrag extends Fragment {
 
         mAdapter.addItem(getResources().getDrawable(R.drawable.light_icon),
                 "형광등1",
-                "coap://localhost:5683/",
+                getContext().getResources().getString(R.string.server1_ipv6),
                 "Bedroom/Lights/Led1",
                 "Switch",
                 "data",
@@ -55,7 +55,7 @@ public class BedroomFrag extends Fragment {
 
         mAdapter.addItem(getResources().getDrawable(R.drawable.light_icon),
                 "형광등2",
-                "coap://localhost:5683/",
+                getContext().getResources().getString(R.string.server1_ipv6),
                 "Bedroom/Lights/Led2",
                 "Switch",
                 "data",
@@ -63,7 +63,7 @@ public class BedroomFrag extends Fragment {
 
         mAdapter.addItem(getResources().getDrawable(R.drawable.light_icon),
                 "형광등3",
-                "coap://localhost:5683/",
+                getContext().getResources().getString(R.string.server1_ipv6),
                 "Bedroom/Lights/Led3",
                 "Switch",
                 "data",
@@ -71,48 +71,40 @@ public class BedroomFrag extends Fragment {
 
         mAdapter.addItem(getResources().getDrawable(R.drawable.window_icon),
                 "창문",
-                "coap://localhost:5683/",
+                getContext().getResources().getString(R.string.server2_ipv6),
                 "Bedroom/Windows/Window1",
                 "Switch",
                 "data",
                 false);
 
-        mAdapter.addItem(getResources().getDrawable(R.drawable.window_icon),
-                "먼지",
-                "coap://localhost:5683/",
-                "Bedroom/Weather/Dust",
-                "Text",
-                "25",
-                false);
-
-        mAdapter.addItem(getResources().getDrawable(R.drawable.window_icon),
+        mAdapter.addItem(getResources().getDrawable(R.drawable.temp_icon),
                 "온도",
-                "coap://localhost:5683/",
-                "Bedroom/Weather/Temperature",
+                getContext().getResources().getString(R.string.sensor1_ipv6),
+                getContext().getResources().getString(R.string.sensor_tempURL),
                 "Text",
                 "25",
                 false);
 
-        mAdapter.addItem(getResources().getDrawable(R.drawable.window_icon),
+        mAdapter.addItem(getResources().getDrawable(R.drawable.hum_icon),
                 "습도",
-                "coap://localhost:5683/",
-                "Bedroom/Weather/Humidity",
+                getContext().getResources().getString(R.string.sensor1_ipv6),
+                getContext().getResources().getString(R.string.sensor_humURL),
                 "Text",
                 "20",
                 false);
 
-        mAdapter.addItem(getResources().getDrawable(R.drawable.window_icon),
+        mAdapter.addItem(getResources().getDrawable(R.drawable.atm_icon),
                 "기압",
-                "coap://localhost:5683/",
-                "Bedroom/Weather/Atmosphere",
+                getContext().getResources().getString(R.string.sensor1_ipv6),
+                getContext().getResources().getString(R.string.sensor_atmURL),
                 "Text",
                 "20",
                 false);
 
-        mAdapter.addItem(getResources().getDrawable(R.drawable.window_icon),
+        mAdapter.addItem(getResources().getDrawable(R.drawable.light_icon),
                 "밝기",
-                "coap://localhost:5683/",
-                "Bedroom/Weather/Lux",
+                getContext().getResources().getString(R.string.sensor1_ipv6),
+                getContext().getResources().getString(R.string.sensor_luxURL),
                 "Text",
                 "20",
                 false);

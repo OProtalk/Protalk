@@ -114,7 +114,6 @@ public class ServerService extends Service {
             exchange.respond("Hello Android!");
         }
     }
-
     class BedroomResource extends CoapResource {
 
         public BedroomResource() {
@@ -136,7 +135,6 @@ public class ServerService extends Service {
             exchange.respond("Hello Android!");
         }
     }
-
     class LivingResource extends CoapResource {
 
         public LivingResource() {
@@ -158,6 +156,12 @@ public class ServerService extends Service {
             exchange.respond("Hello Android!");
         }
     }
+
+
+
+
+
+
 
     class LightsResource extends CoapResource {
 

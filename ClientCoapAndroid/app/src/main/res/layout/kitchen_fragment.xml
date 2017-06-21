@@ -24,43 +24,43 @@
             android:layout_alignBottom="@+id/srcKitchen"
             android:background="#90ffffff"
             android:gravity="center"
-            android:text="습도 : "
+            android:text="부엌"
             android:textSize="30dp" />
 
-        <TextView
-            android:id="@+id/textKitchenPres"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="false"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentStart="false"
-            android:layout_centerInParent="true"
-            android:layout_centerVertical="false"
-            android:background="#90ffffff"
-            android:gravity="center"
-            android:text="기압 : "
-            android:textSize="30dp" />
+        <!--<TextView-->
+            <!--android:id="@+id/textKitchenPres"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentLeft="false"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_alignParentStart="false"-->
+            <!--android:layout_centerInParent="true"-->
+            <!--android:layout_centerVertical="false"-->
+            <!--android:background="#90ffffff"-->
+            <!--android:gravity="center"-->
+            <!--android:text="기압 : "-->
+            <!--android:textSize="30dp" />-->
 
-        <TextView
-            android:id="@+id/textKitchenTemp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:background="#90ffffff"
-            android:gravity="center"
-            android:text="온도 : "
-            android:textSize="30dp" />
+        <!--<TextView-->
+            <!--android:id="@+id/textKitchenTemp"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:background="#90ffffff"-->
+            <!--android:gravity="center"-->
+            <!--android:text="온도 : "-->
+            <!--android:textSize="30dp" />-->
 
-        <TextView
-            android:id="@+id/textKitchenLux"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/srcKitchen"
-            android:layout_alignRight="@+id/srcKitchen"
-            android:background="#90ffffff"
-            android:gravity="center"
-            android:text="밝기 : "
-            android:textSize="30dp" />
+        <!--<TextView-->
+            <!--android:id="@+id/textKitchenLux"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignBottom="@+id/srcKitchen"-->
+            <!--android:layout_alignRight="@+id/srcKitchen"-->
+            <!--android:background="#90ffffff"-->
+            <!--android:gravity="center"-->
+            <!--android:text="밝기 : "-->
+            <!--android:textSize="30dp" />-->
     </RelativeLayout>
 
     <ListView

@@ -25,10 +25,10 @@ public class YardFrag extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup)inflater.inflate(R.layout.yard_fragment, container, false);
 
-        ((TextView)rootView.findViewById(R.id.textYardHum)).setText("습도 : 30%");
-        ((TextView)rootView.findViewById(R.id.textYardPres)).setText("기압 : 30");
-        ((TextView)rootView.findViewById(R.id.textYardTemp)).setText("온도 : 30도");
-        ((TextView)rootView.findViewById(R.id.textYardLux)).setText("밝기 : 3000");
+//        ((TextView)rootView.findViewById(R.id.textYardHum)).setText("습도 : 30%");
+//        ((TextView)rootView.findViewById(R.id.textYardPres)).setText("기압 : 30");
+//        ((TextView)rootView.findViewById(R.id.textYardTemp)).setText("온도 : 30도");
+//        ((TextView)rootView.findViewById(R.id.textYardLux)).setText("밝기 : 3000");
 
         listYard = (ListView)rootView.findViewById(R.id.YardList);
         mAdapter = new ListViewAdapter(getContext());
@@ -36,56 +36,48 @@ public class YardFrag extends Fragment {
 
         mAdapter.addItem(getResources().getDrawable(R.drawable.light_icon),
                 "형광등1",
-                "coap://localhost:5683/",
-                "Yard/Lights/Led1",
+                getContext().getResources().getString(R.string.server1_ipv6),
+                "Yard/Lights/Led9",
                 "Switch",
                 "data",
                 false);
 
-        mAdapter.addItem(getResources().getDrawable(R.drawable.light_icon),
-                "형광등2",
-                "coap://localhost:5683/",
-                "Yard/Lights/Led1",
-                "Switch",
-                "data",
-                false);
-
-        mAdapter.addItem(getResources().getDrawable(R.drawable.window_icon),
+        mAdapter.addItem(getResources().getDrawable(R.drawable.car_icon),
                 "차고지 열기",
-                "coap://localhost:5683/",
+                getContext().getResources().getString(R.string.server3_ipv6),
                 "Yard/Windows/YardDoor",
                 "Switch",
                 "data",
                 false);
 
-        mAdapter.addItem(getResources().getDrawable(R.drawable.window_icon),
+        mAdapter.addItem(getResources().getDrawable(R.drawable.temp_icon),
                 "온도",
-                "coap://localhost:5683/",
-                "Yard/Weather/Temperature",
+                getContext().getResources().getString(R.string.sensor5_ipv6),
+                getContext().getResources().getString(R.string.sensor_tempURL),
                 "Text",
                 "25",
                 false);
 
-        mAdapter.addItem(getResources().getDrawable(R.drawable.window_icon),
+        mAdapter.addItem(getResources().getDrawable(R.drawable.hum_icon),
                 "습도",
-                "coap://localhost:5683/",
-                "Yard/Weather/Humidity",
+                getContext().getResources().getString(R.string.sensor5_ipv6),
+                getContext().getResources().getString(R.string.sensor_humURL),
                 "Text",
                 "20",
                 false);
 
-        mAdapter.addItem(getResources().getDrawable(R.drawable.window_icon),
+        mAdapter.addItem(getResources().getDrawable(R.drawable.atm_icon),
                 "기압",
-                "coap://localhost:5683/",
-                "Yard/Weather/Atmosphere",
+                getContext().getResources().getString(R.string.sensor5_ipv6),
+                getContext().getResources().getString(R.string.sensor_atmURL),
                 "Text",
                 "20",
                 false);
 
-        mAdapter.addItem(getResources().getDrawable(R.drawable.window_icon),
+        mAdapter.addItem(getResources().getDrawable(R.drawable.light_icon),
                 "밝기",
-                "coap://localhost:5683/",
-                "Yard/Weather/Lux",
+                getContext().getResources().getString(R.string.sensor5_ipv6),
+                getContext().getResources().getString(R.string.sensor_luxURL),
                 "Text",
                 "20",
                 false);
