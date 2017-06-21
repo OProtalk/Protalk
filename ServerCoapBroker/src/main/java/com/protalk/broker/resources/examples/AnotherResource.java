@@ -1,4 +1,4 @@
-package com.protalk.broker.resources;
+package com.protalk.broker.resources.examples;
 
 import org.eclipse.californium.core.*;
 import org.eclipse.californium.core.coap.CoAP.*;

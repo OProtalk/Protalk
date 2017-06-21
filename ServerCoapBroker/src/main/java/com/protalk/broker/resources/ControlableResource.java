@@ -8,14 +8,14 @@ import org.eclipse.californium.core.server.resources.*;
 
 import com.protalk.serial.*;
 
-public class LedResource extends CoapResource {
+public class ControlableResource extends CoapResource {
 
 	private Serial serial = null;
 	private int ON_ = '1'; // 123: 켜짐
 	private int OFF_ = 'Q'; // QWE: 꺼짐
 	private int REQ_ = 'Z'; // ZXC: 라즈베리가 아두이노에 요청
 
-	public LedResource(String _name, Serial _serial, int _on, int _off, int _req) {
+	public ControlableResource(String _name, Serial _serial, int _on, int _off, int _req) {
 		super(_name);
 		this.serial = _serial;
 		this.ON_ = _on;
@@ -79,4 +79,58 @@ public class LedResource extends CoapResource {
 		}
 	} // func
 
-}
+	// static stuff below
+	
+	public static final int
+	TYPE_WINDOW = 1;
+	
+	private static ControlableResourceFactory mFactory = null;
+	
+	public static ControlableResourceFactory getFactory() {
+		if (mFactory == null) { // 1
+			synchronized(ControlableResource.class) { // 2
+				if (mFactory == null) { // 3
+					mFactory = new ControlableResourceFactory();
+				}
+			}
+		} // Double-Checked Locking
+		return mFactory;
+	} // func
+	
+	public static class ControlableResourceFactory {
+		public ControlableResource create(int _type, Serial _serial) {
+			switch (_type) {
+			case TYPE_WINDOW:
+				return new ControlableResource("Window", _serial, 'H', 'L', 'l');
+			default:
+				return null;
+			}
+		}
+		public ControlableResource createLed(int _index, Serial _serial) {
+			switch (_index) {
+			case 1:
+				return new ControlableResource("Led1", _serial, '1', 'Q', 'q');
+			case 2:
+				return new ControlableResource("Led2", _serial, '2', 'W', 'w');
+			case 3:
+				return new ControlableResource("Led3", _serial, '3', 'E', 'e');
+			case 4:
+				return new ControlableResource("Led4", _serial, '4', 'A', 'a');
+			case 5:
+				return new ControlableResource("Led5", _serial, '5', 'S', 's');
+			case 6:
+				return new ControlableResource("Led6", _serial, '6', 'Z', 'z');
+			case 7:
+				return new ControlableResource("Led7", _serial, '7', 'X', 'x');
+			case 8:
+				return new ControlableResource("Led8", _serial, '8', 'I', 'i');
+			case 9:
+				return new ControlableResource("Led9", _serial, '9', 'O', 'o');
+			default:
+				return new ControlableResource("Led" + _index, _serial,
+						Character.forDigit(_index, 10), ' ', ' ');
+			} // switch
+		} // constructor
+	} // public static class
+
+} // public class

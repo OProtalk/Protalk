@@ -1,4 +1,4 @@
-package com.protalk.broker.resources;
+package com.protalk.broker.resources.examples;
 
 import java.util.*;
 import org.eclipse.californium.core.*;
