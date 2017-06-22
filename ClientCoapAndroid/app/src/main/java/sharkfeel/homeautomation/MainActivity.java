@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
 
         final android.app.AlertDialog dlgIPServer = new android.app.AlertDialog.Builder(
                 this).setView(viewInDialog).create();
-        dlgIPServer.setTitle("서버 IP 설정");
+        dlgIPServer.setTitle("프록시 IP 설정");
         final EditText editServer1 = (EditText)viewInDialog.findViewById(R.id.editServer1);
         final EditText editServer2 = (EditText)viewInDialog.findViewById(R.id.editServer2);
 

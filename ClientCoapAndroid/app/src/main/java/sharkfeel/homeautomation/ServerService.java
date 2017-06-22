@@ -57,9 +57,12 @@ public class ServerService extends Service {
 
             // set resource identifier
             super("Kitchen");
-            add(new LightsResource());
-            add(new WindowsResource());
-            add(new WeatherResource());
+            add(new Led1Resource());
+            add(new PPMResource());
+            add(new TempResource());
+            add(new HumResource());
+            add(new AtmResource());
+            add(new LuxResource());
 
             // set display name
             getAttributes().setTitle("Hello-World Resource");
@@ -78,9 +81,12 @@ public class ServerService extends Service {
 
             // set resource identifier
             super("Yard");
-            add(new LightsResource());
-            add(new WindowsResource());
-            add(new WeatherResource());
+            add(new Led1Resource());
+            add(new DoorResource());
+            add(new TempResource());
+            add(new HumResource());
+            add(new AtmResource());
+            add(new LuxResource());
 
             // set display name
             getAttributes().setTitle("Hello-World Resource");
@@ -99,9 +105,12 @@ public class ServerService extends Service {
 
             // set resource identifier
             super("Bathroom");
-            add(new LightsResource());
-            add(new WindowsResource());
-            add(new WeatherResource());
+            add(new Led1Resource());
+            add(new Led2Resource());
+            add(new TempResource());
+            add(new HumResource());
+            add(new AtmResource());
+            add(new LuxResource());
 
             // set display name
             getAttributes().setTitle("Hello-World Resource");
@@ -120,9 +129,14 @@ public class ServerService extends Service {
 
             // set resource identifier
             super("Bedroom");
-            add(new LightsResource());
-            add(new WindowsResource());
-            add(new WeatherResource());
+            add(new Led1Resource());
+            add(new Led2Resource());
+            add(new Led3Resource());
+            add(new WindowResource());
+            add(new TempResource());
+            add(new HumResource());
+            add(new AtmResource());
+            add(new LuxResource());
 
             // set display name
             getAttributes().setTitle("Hello-World Resource");
@@ -141,38 +155,12 @@ public class ServerService extends Service {
 
             // set resource identifier
             super("Living");
-            add(new LightsResource());
-            add(new WindowsResource());
-            add(new WeatherResource());
-
-            // set display name
-            getAttributes().setTitle("Hello-World Resource");
-        }
-
-        @Override
-        public void handleGET(CoapExchange exchange) {
-
-            // respond to the request
-            exchange.respond("Hello Android!");
-        }
-    }
-
-
-
-
-
-
-
-    class LightsResource extends CoapResource {
-
-        public LightsResource() {
-
-            // set resource identifier
-            super("Lights");
             add(new Led1Resource());
             add(new Led2Resource());
-            add(new Led3Resource());
-
+            add(new TempResource());
+            add(new HumResource());
+            add(new AtmResource());
+            add(new LuxResource());
 
             // set display name
             getAttributes().setTitle("Hello-World Resource");
@@ -262,34 +250,12 @@ public class ServerService extends Service {
     }
 
 
+    class WindowResource extends CoapResource {
 
-    class WindowsResource extends CoapResource {
-
-        public WindowsResource() {
-
-            // set resource identifier
-            super("Windows");
-            add(new Window1Resource());
-            add(new DoorResource());
-
-            // set display name
-            getAttributes().setTitle("Hello-World Resource");
-        }
-
-        @Override
-        public void handleGET(CoapExchange exchange) {
-
-            // respond to the request
-            exchange.respond("Hello Android!");
-        }
-    }
-
-    class Window1Resource extends CoapResource {
-
-        public Window1Resource() {
+        public WindowResource() {
 
             // set resource identifier
-            super("Window1");
+            super("Window");
 
             // set display name
             getAttributes().setTitle("Hello-World Resource");
@@ -332,31 +298,6 @@ public class ServerService extends Service {
         }
     }
 
-    class WeatherResource extends CoapResource {
-
-        public WeatherResource() {
-
-            // set resource identifier
-            super("Weather");
-            add(new TempResource());
-            add(new HumResource());
-            add(new AtmResource());
-            add(new LuxResource());
-            add(new DustResource());
-            add(new PPMResource());
-
-            // set display name
-            getAttributes().setTitle("Hello-World Resource");
-        }
-
-        @Override
-        public void handleGET(CoapExchange exchange) {
-
-            // respond to the request
-            exchange.respond("Hello Android!");
-        }
-    }
-
     class PPMResource extends CoapResource {
 
         int i = 50;
@@ -391,42 +332,6 @@ public class ServerService extends Service {
             //exchange.respond("Hello Android!");
         }
     }
-
-    class DustResource extends CoapResource {
-
-        int i = 50;
-        public DustResource() {
-
-            // set resource identifier
-            super("Dust");
-            setObservable(true);
-            setObserveType(CoAP.Type.CON);
-            getAttributes().setObservable();
-
-
-            Timer timer = new Timer();
-            timer.schedule(new UpdateTask(), 0, 5000);
-
-            // set display name
-            getAttributes().setTitle("Hello-World Resource");
-        }
-
-        private class UpdateTask extends TimerTask {
-            @Override
-            public void run() {
-                changed();
-            }
-        }
-
-        @Override
-        public void handleGET(CoapExchange exchange) {
-            exchange.setMaxAge(5);
-            exchange.respond(String.valueOf(i++));
-            // respond to the request
-            //exchange.respond("Hello Android!");
-        }
-    }
-
     class AtmResource extends CoapResource {
 
         int i = 50;
@@ -434,31 +339,13 @@ public class ServerService extends Service {
 
             // set resource identifier
             super("Atmosphere");
-            setObservable(true);
-            setObserveType(CoAP.Type.CON);
-            getAttributes().setObservable();
 
-
-            Timer timer = new Timer();
-            timer.schedule(new UpdateTask(), 0, 5000);
-
-            // set display name
             getAttributes().setTitle("Hello-World Resource");
-        }
-
-        private class UpdateTask extends TimerTask {
-            @Override
-            public void run() {
-                changed();
-            }
         }
 
         @Override
         public void handleGET(CoapExchange exchange) {
-            exchange.setMaxAge(5);
             exchange.respond(String.valueOf(i++));
-            // respond to the request
-            //exchange.respond("Hello Android!");
         }
     }
 

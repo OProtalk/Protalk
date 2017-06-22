@@ -37,7 +37,7 @@ public class BathroomFrag extends Fragment {
         mAdapter.addItem(getResources().getDrawable(R.drawable.light_icon),
                 "형광등1",
                 getContext().getResources().getString(R.string.server1_ipv6),
-                "Bathroom/Lights/Led4",
+                "Bathroom/Led4",
                 "Switch",
                 "data",
                 false);
@@ -45,7 +45,7 @@ public class BathroomFrag extends Fragment {
         mAdapter.addItem(getResources().getDrawable(R.drawable.light_icon),
                 "형광등2",
                 getContext().getResources().getString(R.string.server1_ipv6),
-                "Bathroom/Lights/Led5",
+                "Bathroom/Led5",
                 "Switch",
                 "data",
                 false);

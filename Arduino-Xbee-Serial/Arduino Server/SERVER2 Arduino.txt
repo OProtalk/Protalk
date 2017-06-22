@@ -1,0 +1,75 @@
+#include <SoftwareSerial.h>
+#include <Servo.h>
+
+
+Servo myservo;  // create servo object to control a servo
+int pin=5;  
+SoftwareSerial xbee(1,2);
+
+
+// 디지털 2번핀을 불꽃감지센서로 지정합니다.
+int firePin = 4;
+int pirState = LOW;
+
+int pos = 0;    // variable to store the servo position
+
+#define RLOAD 10.0
+
+/// Calibration resistance at atmospheric CO2 level
+
+#define RZERO 76.63
+
+/// Parameters for calculating ppm of CO2 from sensor resistance
+#define PARA 116.6020682
+#define PARB 2.769034857
+
+void setup() {
+  pinMode(firePin, INPUT);
+  myservo.attach(4);  // attaches the servo on pin 9 to the servo object
+  // put your setup code here, to run once:
+  xbee.begin(9600);
+
+}
+
+void loop() {
+
+  if( xbee.available())
+  {
+    switch(xbee.read())
+    {
+    case 'H':
+      for (pos = 0; pos <= 90; pos += 1) { // goes from 0 degrees to 180 degrees
+        // in steps of 1 degree
+        myservo.write(pos);              // tell servo to go to position in variable 'pos'
+        delay(15);                       // waits 15ms for the servo to reach the position
+      }
+      break;
+
+    case 'L':
+      for (pos = 90; pos >= 0; pos -= 1) { // goes from 180 degrees to 0 degrees
+        myservo.write(pos);              // tell servo to go to position in variable 'pos'
+        delay(15);                       // waits 15ms for the servo to reach the position
+      }
+      break;
+    case 'P':
+      xbee.write(sendPPMData());
+      break;
+    }
+  }
+}
+
+
+int sendPPMData() 
+{
+  int val = analogRead(0);
+  val = (1023./(float)val) * 5. - 1.* RLOAD;
+  float Resistance;
+  Resistance = val;
+  //
+  float PPM;
+  PPM = PARA * pow((Resistance/RZERO), -PARB);
+  //
+
+  return (int)PPM;
+  delay(1000);
+}

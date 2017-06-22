@@ -36,7 +36,7 @@ public class KitchenFrag extends Fragment {
         mAdapter.addItem(getResources().getDrawable(R.drawable.light_icon),
                 "형광등1",
                 getContext().getResources().getString(R.string.server1_ipv6),
-                "Kitchen/Lights/Led6",
+                "Kitchen/Led8",
                 "Switch",
                 "data",
                 false);
@@ -44,7 +44,7 @@ public class KitchenFrag extends Fragment {
         mAdapter.addItem(getResources().getDrawable(R.drawable.toxicgas_icon),
                 "유해가스",
                 getContext().getResources().getString(R.string.server2_ipv6),
-                "Kitchen/Weather/PPM",
+                "Kitchen/PPM",
                 "Text",
                 "25",
                 false);

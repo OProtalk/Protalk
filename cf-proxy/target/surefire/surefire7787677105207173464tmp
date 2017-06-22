@@ -1,0 +1,36 @@
+#surefire
+#Tue May 16 00:33:00 KST 2017
+testClassesDirectory=C\:\\Users\\Jimyeol\\Desktop\\Git-2.9.2-64-bit\\californium\\demo-apps\\cf-proxy\\target\\test-classes
+classPathUrl.4=C\:\\Users\\Jimyeol\\.m2\\repository\\io\\netty\\netty-all\\4.1.1.Final\\netty-all-4.1.1.Final.jar
+classPathUrl.3=C\:\\Users\\Jimyeol\\.m2\\repository\\org\\eclipse\\californium\\element-connector\\2.0.0-M2\\element-connector-2.0.0-M2.jar
+classPathUrl.2=C\:\\Users\\Jimyeol\\.m2\\repository\\org\\eclipse\\californium\\californium-core\\2.0.0-M2\\californium-core-2.0.0-M2.jar
+useManifestOnlyJar=true
+classPathUrl.1=C\:\\Users\\Jimyeol\\Desktop\\Git-2.9.2-64-bit\\californium\\demo-apps\\cf-proxy\\target\\classes
+reportsDirectory=C\:\\Users\\Jimyeol\\Desktop\\Git-2.9.2-64-bit\\californium\\demo-apps\\cf-proxy\\target\\surefire-reports
+classPathUrl.0=C\:\\Users\\Jimyeol\\Desktop\\Git-2.9.2-64-bit\\californium\\demo-apps\\cf-proxy\\target\\test-classes
+dirscanner.0=directoryScannerOptions
+providerConfiguration=org.apache.maven.surefire.junit.JUnit3Provider
+testSuiteDefinitionTestSourceDirectory=C\:\\Users\\Jimyeol\\Desktop\\Git-2.9.2-64-bit\\californium\\demo-apps\\cf-proxy\\src\\test\\java
+surefireClassPathUrl.1=C\:\\Users\\Jimyeol\\.m2\\repository\\org\\apache\\maven\\surefire\\surefire-api\\2.7.1\\surefire-api-2.7.1.jar
+surefireClassPathUrl.0=C\:\\Users\\Jimyeol\\.m2\\repository\\org\\apache\\maven\\surefire\\surefire-junit3\\2.7.1\\surefire-junit3-2.7.1.jar
+report.2=org.apache.maven.surefire.report.XMLReporter
+useSystemClassLoader=true
+report.1=org.apache.maven.surefire.report.BriefFileReporter
+report.0=org.apache.maven.surefire.report.ForkingConsoleReporter
+excludes0=**/*$*
+isTrimStackTrace=true
+dirscanner.0.params=C\:\\Users\\Jimyeol\\Desktop\\Git-2.9.2-64-bit\\californium\\demo-apps\\cf-proxy\\target\\test-classes|[**/Test*.java, **/*Test.java, **/*TestCase.java]|[**/*$*]
+includes2=**/*TestCase.java
+enableAssertions=true
+includes1=**/*Test.java
+failIfNoTests=false
+includes0=**/Test*.java
+dirscanner.0.types=java.io.File|java.util.ArrayList|java.util.ArrayList
+classPathUrl.11=C\:\\Users\\Jimyeol\\.m2\\repository\\com\\google\\guava\\guava\\15.0\\guava-15.0.jar
+classPathUrl.10=C\:\\Users\\Jimyeol\\.m2\\repository\\commons-codec\\commons-codec\\1.6\\commons-codec-1.6.jar
+classPathUrl.9=C\:\\Users\\Jimyeol\\.m2\\repository\\commons-logging\\commons-logging\\1.1.1\\commons-logging-1.1.1.jar
+classPathUrl.8=C\:\\Users\\Jimyeol\\.m2\\repository\\org\\apache\\httpcomponents\\httpclient\\4.2.5\\httpclient-4.2.5.jar
+classPathUrl.7=C\:\\Users\\Jimyeol\\.m2\\repository\\org\\apache\\httpcomponents\\httpcore\\4.2.5\\httpcore-4.2.5.jar
+childDelegation=false
+classPathUrl.6=C\:\\Users\\Jimyeol\\.m2\\repository\\org\\apache\\httpcomponents\\httpcore-nio\\4.2.5\\httpcore-nio-4.2.5.jar
+classPathUrl.5=C\:\\Users\\Jimyeol\\.m2\\repository\\org\\eclipse\\californium\\californium-proxy\\2.0.0-M2\\californium-proxy-2.0.0-M2.jar

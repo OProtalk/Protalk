@@ -37,7 +37,7 @@ public class YardFrag extends Fragment {
         mAdapter.addItem(getResources().getDrawable(R.drawable.light_icon),
                 "형광등1",
                 getContext().getResources().getString(R.string.server1_ipv6),
-                "Yard/Lights/Led9",
+                "Yard/Led9",
                 "Switch",
                 "data",
                 false);
@@ -45,7 +45,7 @@ public class YardFrag extends Fragment {
         mAdapter.addItem(getResources().getDrawable(R.drawable.car_icon),
                 "차고지 열기",
                 getContext().getResources().getString(R.string.server3_ipv6),
-                "Yard/Windows/YardDoor",
+                "Yard/Window",
                 "Switch",
                 "data",
                 false);

@@ -48,7 +48,7 @@ public class BedroomFrag extends Fragment {
         mAdapter.addItem(getResources().getDrawable(R.drawable.light_icon),
                 "형광등1",
                 getContext().getResources().getString(R.string.server1_ipv6),
-                "Bedroom/Lights/Led1",
+                "Bedroom/Led1",
                 "Switch",
                 "data",
                 false);
@@ -56,7 +56,7 @@ public class BedroomFrag extends Fragment {
         mAdapter.addItem(getResources().getDrawable(R.drawable.light_icon),
                 "형광등2",
                 getContext().getResources().getString(R.string.server1_ipv6),
-                "Bedroom/Lights/Led2",
+                "Bedroom/Led2",
                 "Switch",
                 "data",
                 false);
@@ -64,7 +64,7 @@ public class BedroomFrag extends Fragment {
         mAdapter.addItem(getResources().getDrawable(R.drawable.light_icon),
                 "형광등3",
                 getContext().getResources().getString(R.string.server1_ipv6),
-                "Bedroom/Lights/Led3",
+                "Bedroom/Led3",
                 "Switch",
                 "data",
                 false);
@@ -72,7 +72,7 @@ public class BedroomFrag extends Fragment {
         mAdapter.addItem(getResources().getDrawable(R.drawable.window_icon),
                 "창문",
                 getContext().getResources().getString(R.string.server2_ipv6),
-                "Bedroom/Windows/Window1",
+                "Bedroom/Window",
                 "Switch",
                 "data",
                 false);
@@ -95,7 +95,7 @@ public class BedroomFrag extends Fragment {
 
         mAdapter.addItem(getResources().getDrawable(R.drawable.atm_icon),
                 "기압",
-                getContext().getResources().getString(R.string.sensor1_ipv6),
+                getContext().getResources().getString(R.string.server1_ipv6),
                 getContext().getResources().getString(R.string.sensor_atmURL),
                 "Text",
                 "20",

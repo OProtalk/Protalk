@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.eclipse.californium</groupId>
+	<version>1.1.0-SNAPSHOT</version>
+	<artifactId>cf-proxy</artifactId>
+	<packaging>jar</packaging>
+
+	<name>Cf-ExampleCrossProxy</name>
+	<description>Californium (Cf) HTTP cross-proxy for testing californium-proxy module</description>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<!-- 빌드할 때 디펜던시 jar 파일들이 위치하는 경로 -->
+		<lib.dir>lib</lib.dir>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.eclipse.californium</groupId>
+			<artifactId>californium-core</artifactId>
+			<version>2.0.0-M2</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.eclipse.californium</groupId>
+		    <artifactId>californium-proxy</artifactId>
+		    <version>2.0.0-M2</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<sourceDirectory>src/main/java</sourceDirectory>
+		<plugins>
+
+			<!-- 실행 가능한 jar 파일을 만들기 위해 필요한 manifest를 정의한다. mainClass는 static main()이 
+				위치한 기본 클래스의 경로를 뜻한다. 여기서는 외부 의존관계를 ${lib.dir} 즉 target/lib/이라는 별도의 폴더에 복사해 
+				담아둘 것이기 때문에, classpathPrefix를 디펜던시들이 위치한 폴더로 설정한다. -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<archive>
+						<manifest>
+							<mainClass>org.eclipse.californium.examples.ExampleCrossProxy</mainClass>
+							<addClasspath>true</addClasspath>
+							<classpathPrefix>${lib.dir}/</classpathPrefix>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+
+			<!-- maven-dependency-plugin으로 프로젝트 디펜던시들을 복사한다. maven-assembly-plugin이나 
+				one-jar plugin 따위를 이용해서, 모든 외부 라이브러리를 하나의 jar 파일 안에 전부 포함시켜 빌드하는 방법도 있다. 
+				하지만 여기에서는 프로그램의 수행시간(런타임)에 필요한 디펜던시들을, 미리 정의한 폴더인 target/lib에 패키징 시점에 복사해서 
+				모아둔 다음, 실행 프로그램의 classpath를 디펜던시들이 위치한 이 폴더의 경로로 설정하는 방법을 쓸 것이다. classpath는 
+				실행 가능한 jar 파일 내부의 manifest나 환경변수에 정의되어 있으며, 자바가 프로그램의 실행을 위해 클래스 파일을 뒤지는 
+				폴더경로를 서술한다. -->
+			<!-- 참고사이트 https://www.mkyong.com/maven/how-to-create-a-jar-file-with-maven/ 
+				http://stove99.tistory.com/79 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.10</version>
+				<executions>
+					<execution>
+						<id>copy-dependencies</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<includeScope>runtime</includeScope>
+							<outputDirectory>${project.build.directory}/${lib.dir}</outputDirectory>
+							<overWriteIfNewer>true</overWriteIfNewer>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+	</build>
+
+</project>

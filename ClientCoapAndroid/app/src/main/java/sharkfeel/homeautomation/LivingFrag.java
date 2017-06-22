@@ -47,7 +47,7 @@ public class LivingFrag extends Fragment {
         mAdapter.addItem(getResources().getDrawable(R.drawable.light_icon),
                 "형광등1",
                 getContext().getResources().getString(R.string.server1_ipv6),
-                "Living/Lights/Led7",
+                "Living/Led6",
                 "Switch",
                 "data",
                 false);
@@ -55,7 +55,7 @@ public class LivingFrag extends Fragment {
         mAdapter.addItem(getResources().getDrawable(R.drawable.light_icon),
                 "형광등2",
                 getContext().getResources().getString(R.string.server1_ipv6),
-                "Living/Lights/Led8",
+                "Living/Led7",
                 "Switch",
                 "data",
                 false);
