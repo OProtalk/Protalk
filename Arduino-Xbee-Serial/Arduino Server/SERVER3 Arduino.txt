@@ -1,55 +1,63 @@
 #include <SoftwareSerial.h>
-#include <Servo.h>
+#include <Stepper.h>
 
 
-Servo myservo;  // create servo object to control a servo
-int pin=5;  
+const int stepsPerRevolution = 2048;
+int motion = 2;
+int light = 12;
+int servoPin = 4;
+int buzzer = 6;
+int angle = 0;
 
+Stepper myStepper(stepsPerRevolution, 11, 9, 10, 8);
+SoftwareSerial xbee(1, 2);
 
-// 디지털 2번핀을 불꽃감지센서로 지정합니다.
-int firePin = 4;
-int pirState = LOW;
-
-int pos = 0;    // variable to store the servo position
 
 #define RLOAD 10.0
-
-/// Calibration resistance at atmospheric CO2 level
-
 #define RZERO 76.63
-
-/// Parameters for calculating ppm of CO2 from sensor resistance
 #define PARA 116.6020682
 #define PARB 2.769034857
 
 void setup() {
-   pinMode(firePin, INPUT);
-   myservo.attach(4);  // attaches the servo on pin 9 to the servo object
-   // put your setup code here, to run once:
-   Serial.begin(9600); //통신속도 설정
-
+	pinMode(motion, INPUT);
+	pinMode(buzzer, OUTPUT);
+	pinMode(light, OUTPUT);
+	myStepper.setSpeed(14);
+	xbee.begin(9600);
 }
 
 void loop() {
 
-   if( Serial.available()>0)
-   {
-      switch(Serial.read())
-      {
-        case 'H':
-        for (pos = 0; pos <= 90; pos += 1) { // goes from 0 degrees to 180 degrees
-    // in steps of 1 degree
-    myservo.write(pos);              // tell servo to go to position in variable 'pos'
-    delay(15);                       // waits 15ms for the servo to reach the position
-  }
-        break;
+	digitalWrite(light, LOW);
+	digitalWrite(buzzer, HIGH);
 
-        case 'L':
-        for (pos = 90; pos >= 0; pos -= 1) { // goes from 180 degrees to 0 degrees
-    myservo.write(pos);              // tell servo to go to position in variable 'pos'
-    delay(15);                       // waits 15ms for the servo to reach the position
-  }
-        break;
-      }
-   }
+
+	int sensor = digitalRead(motion);
+
+	if (sensor == HIGH) {
+		digitalWrite(light, HIGH);
+		digitalWrite(buzzer, LOW);
+		myStepper.step(stepsPerRevolution);
+		delay(2500);
+
+		myStepper.step(-stepsPerRevolution);
+		delay(500);
+	}
+
+	if (xbee.available())
+	{
+		switch (xbee.read())
+		{
+		case 'R':
+			myStepper.step(stepsPerRevolution);
+			delay(500);                      // waits 15ms for the servo to reach the position
+			}
+			break;
+
+		case 'T':
+			myStepper.step(-stepsPerRevolution);
+			delay(500);
+			break;
+		}
+	}
 }
