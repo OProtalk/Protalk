@@ -83,6 +83,7 @@ public class ControlableResource extends CoapResource {
 	
 	public static final int
 	TYPE_WINDOW = 1;
+	TYPE_WINDOW2 = 3;
 	
 	private static ControlableResourceFactory mFactory = null;
 	
@@ -102,6 +103,8 @@ public class ControlableResource extends CoapResource {
 			switch (_type) {
 			case TYPE_WINDOW:
 				return new ControlableResource("Window", _serial, 'H', 'L', 'l');
+			case TYPE_WINDOW2:
+				return new ControlableResource("Window", _serial, 'R', 'T', 'l');
 			default:
 				return null;
 			}
