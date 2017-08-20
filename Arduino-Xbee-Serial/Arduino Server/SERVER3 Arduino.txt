@@ -1,14 +1,15 @@
 #include <SoftwareSerial.h>
-#include <Servo.h>
+#include <Stepper.h>
 
 
-Servo servo;  // create servo object to control a servo
+const int stepsPerRevolution = 2048;
 int motion = 2;
 int light = 12;
 int servoPin = 4;
-int buzzer = 9;
+int buzzer = 6;
 int angle = 0;
 
+Stepper myStepper(stepsPerRevolution, 11, 9, 10, 8);
 SoftwareSerial xbee(1, 2);
 
 
@@ -21,8 +22,7 @@ void setup() {
 	pinMode(motion, INPUT);
 	pinMode(buzzer, OUTPUT);
 	pinMode(light, OUTPUT);
-	servo.attach(servoPin);
-
+	myStepper.setSpeed(14);
 	xbee.begin(9600);
 }
 
@@ -30,20 +30,18 @@ void loop() {
 
 	digitalWrite(light, LOW);
 	digitalWrite(buzzer, HIGH);
-	servo.write(0);
-	delay(15);
+
 
 	int sensor = digitalRead(motion);
 
 	if (sensor == HIGH) {
 		digitalWrite(light, HIGH);
 		digitalWrite(buzzer, LOW);
-		for (angle = 0; angle < 90; angle++)
-		{
-			servo.write(angle);
-			delay(15);
-		}
+		myStepper.step(stepsPerRevolution);
 		delay(2500);
+
+		myStepper.step(-stepsPerRevolution);
+		delay(500);
 	}
 
 	if (xbee.available())
@@ -51,18 +49,14 @@ void loop() {
 		switch (xbee.read())
 		{
 		case 'R':
-			for (angle = 0; angle <= 90; angle += 1) { // goes from 0 degrees to 180 degrees
-												 // in steps of 1 degree
-				servo.write(angle);              // tell servo to go to position in variable 'pos'
-				delay(15);                       // waits 15ms for the servo to reach the position
+			myStepper.step(stepsPerRevolution);
+			delay(500);                      // waits 15ms for the servo to reach the position
 			}
 			break;
 
 		case 'T':
-			for (angle = 90; angle >= 0; angle -= 1) { // goes from 180 degrees to 0 degrees
-				servo.write(angle);              // tell servo to go to position in variable 'pos'
-				delay(15);                       // waits 15ms for the servo to reach the position
-			}
+			myStepper.step(-stepsPerRevolution);
+			delay(500);
 			break;
 		}
 	}
