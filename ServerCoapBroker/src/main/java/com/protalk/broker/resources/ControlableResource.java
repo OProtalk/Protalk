@@ -83,6 +83,7 @@ public class ControlableResource extends CoapResource {
 	
 	public static final int
 	TYPE_WINDOW = 1;
+	public static final int
 	TYPE_WINDOW2 = 3;
 	
 	private static ControlableResourceFactory mFactory = null;
