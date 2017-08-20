@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageVoice"
+        android:src="@drawable/volumeicon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="5dp"/>
+
+    <TextView
+        android:id="@+id/textUserMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:text="유저가 메세지를 음성에 인식합니다."
+        android:layout_toRightOf="@id/imageVoice"
+        android:layout_marginLeft="5dp"/>
+    <TextView
+        android:layout_below="@+id/textUserMessage"
+        android:id="@+id/textComMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:layout_marginLeft="13dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:text="LED가 켜졌습니다."
+        android:layout_toRightOf="@id/imageVoice"/>
+</RelativeLayout>

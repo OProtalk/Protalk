@@ -149,10 +149,11 @@ public class ListViewAdapter extends BaseAdapter {
                         optionFileRead(KEY_SERVER1_IP) +
                         ":" +
                         optionFileRead(KEY_SERVER2_IP) +
-                        "/proxy/coap://" +
+                        "/proxy/" +
                         mListData.get(pos).mServerIP +
-                        ":5683" +
+                        ":5683/" +
                         mListData.get(pos).mSensorURL;
+                //Toast.makeText(mContext, strUrl, Toast.LENGTH_SHORT).show();
                 new DownloadWebpageTask(holder).execute(strUrl, String.valueOf(pos));
 
                 //String html = downloadURL("http://www.naver.com");
@@ -206,7 +207,7 @@ public class ListViewAdapter extends BaseAdapter {
 
         @Override
         protected void onPostExecute(String result) {
-            holder.mData.setText(result+"\n");
+            holder.mData.setText(result);
         }
 
         private String downloadUrl(String myurl) throws IOException{

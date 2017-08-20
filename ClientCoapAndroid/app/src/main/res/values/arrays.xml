@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string-array name="titles">
         <item>Living</item>
         <item>Bedroom</item>
@@ -8,5 +7,29 @@
         <item>Kitchin</item>
         <item>Yard</item>
     </string-array>
+
+    <string-array name="servers">
+        <item>coap://[aaaa::212:4b00:c65:8001]:5683</item>
+        <item>coap://[aaaa::212:4b00:c66:1382]:5683</item>
+        <item>coap://[aaaa::212:4b00:c66:ea04]:5683</item>
+        <item>coap://[aaaa::212:4b00:c66:2281]:5683</item>
+        <item>coap://[aaaa::212:4b00:c67:9b05]:5683</item>
+        <item>coap://[2005::ba27:ebff:fea8:ac00]</item>
+        <item>coap://[2005::ba27:ebff:fe4a:48f0]</item>
+        <item>coap://[2005::ba27:ebff:fe50:b56f]</item>
+    </string-array>
+
+    <string-array name="locals">
+        <item>/Bedroom</item>
+        <item>/Bathroom</item>
+        <item>/Living</item>
+        <item>/Kitchen</item>
+        <item>/Yard</item>
+        <item>/sen/tmp/amb</item>
+        <item>/sen/hdc/h</item>
+        <item>/sen/bar/pres</item>
+        <item>/sen/opt/light</item>
+    </string-array>
+
 
 </resources>

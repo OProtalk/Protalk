@@ -24,6 +24,11 @@
             android:orderInCategory="3"
             android:title="Get"
             app:showAsAction="never" />
+        <item
+            android:id="@+id/action_voice"
+            android:orderInCategory="4"
+            android:title="@string/action_voice"
+            app:showAsAction="never" />
     </group>
     <group>
         <item

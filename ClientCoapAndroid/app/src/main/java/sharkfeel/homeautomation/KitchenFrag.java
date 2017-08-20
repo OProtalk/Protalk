@@ -41,14 +41,6 @@ public class KitchenFrag extends Fragment {
                 "data",
                 false);
 
-        mAdapter.addItem(getResources().getDrawable(R.drawable.toxicgas_icon),
-                "유해가스",
-                getContext().getResources().getString(R.string.server2_ipv6),
-                "Kitchen/PPM",
-                "Text",
-                "25",
-                false);
-
         mAdapter.addItem(getResources().getDrawable(R.drawable.temp_icon),
                 "온도",
                 getContext().getResources().getString(R.string.sensor3_ipv6),

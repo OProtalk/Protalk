@@ -173,6 +173,10 @@ public class MainActivity extends AppCompatActivity {
                 String uri = strSever + "Bedroom/Lights/Led1";
                 new CoapGetTask().execute(uri);
                 return true;
+            case R.id.action_voice:
+                Intent intent = new Intent(this, VoiceActivity.class);
+                startActivity(intent);
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }

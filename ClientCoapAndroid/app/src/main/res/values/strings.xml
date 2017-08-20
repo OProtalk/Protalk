@@ -9,6 +9,8 @@
 
     <string name="action_start">Run Local Server</string>
 
+    <string name="action_voice">음성인식</string>
+
     <string name="uri_sandbox">coap://californium.eclipse.org:5683/</string>
     <string name="uri_local">coap://localhost:5683/</string>
 
@@ -16,11 +18,16 @@
     <string name="server2_ipv6">coap://[2005::ba27:ebff:fe4a:48f0]/</string>
     <string name="server3_ipv6">coap://[2005::ba27:ebff:fe50:b56f]/</string>
 
-    <string name="sensor1_ipv6">coap://[aaaa::212:4b00:c65:8001]/</string>
-    <string name="sensor2_ipv6">coap://[aaaa::212:4b00:c66:1382]/</string>
-    <string name="sensor3_ipv6">coap://[aaaa::212:4b00:c66:ea04]/</string>
-    <string name="sensor4_ipv6">coap://[aaaa::212:4b00:c66:2281]/</string>
-    <string name="sensor5_ipv6">coap://[aaaa::212:4b00:c67:9b05]/</string>
+    <!--Bedroom-->
+    <string name="sensor1_ipv6">coap://[aaaa::212:4b00:c65:8001]</string>
+    <!--Bathroom-->
+    <string name="sensor2_ipv6">coap://[aaaa::212:4b00:c66:1382]</string>
+    <!--Kitchen-->
+    <string name="sensor3_ipv6">coap://[aaaa::212:4b00:c66:ea04]</string>
+    <!--Living-->
+    <string name="sensor4_ipv6">coap://[aaaa::212:4b00:c66:2281]</string>
+    <!--Yard-->
+    <string name="sensor5_ipv6">coap://[aaaa::212:4b00:c67:9b05]</string>
 
     <string name="sensor_tempURL">sen/tmp/amb</string>
     <string name="sensor_humURL">sen/hdc/h</string>

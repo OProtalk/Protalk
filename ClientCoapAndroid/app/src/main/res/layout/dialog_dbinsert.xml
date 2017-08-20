@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/edit_Say"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="LED 켜"/>
+    <Spinner
+        android:id="@+id/spn_servers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/servers"></Spinner>
+
+    <Spinner
+        android:id="@+id/spn_locals"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/locals"></Spinner>
+
+    <EditText
+        android:id="@+id/edit_Url"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="/Led1(Get일경우 X)"/>
+
+    <RadioGroup
+        android:id="@+id/radioMeans"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center">
+        <RadioButton
+            android:id="@+id/radioGet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="GET"/>
+        <RadioButton
+            android:id="@+id/radioPut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PUT"/>
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/editPutMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="ON (PUT일때만 작성하세요)"/>
+
+</LinearLayout>

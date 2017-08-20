@@ -17,6 +17,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".VoiceActivity"></activity>
+        <activity android:name=".DBInsertActivity"></activity>
         <service
             android:name=".ServerService"
             android:enabled="true"
